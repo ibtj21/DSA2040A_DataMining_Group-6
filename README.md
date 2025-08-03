@@ -56,6 +56,25 @@ From the initial `.info()` checks across the Olist datasets, we observe the foll
 These findings guide us to perform data cleaning and transformations in the upcoming ETL steps.
 ____
 
+## Transformation
+- This part entails changing the datasets into the required formats so as to be able to draw meaningful insights from it.
+- We started by converting the date time columns into datetime type to enable filtering
+- <img width="1130" height="886" alt="image" src="https://github.com/user-attachments/assets/0c28018d-5c85-4533-8491-1e8aa1fb6021" />
+- This was first done by checking if the columns actually appear in the several datasets and then changing them into the dateime format
+
+- Since we wanted to look at only the sales of the last 3 months, we had to do some filtering
+- <img width="975" height="853" alt="image" src="https://github.com/user-attachments/assets/7d70915d-c225-4865-878c-1aa1d3399155" />
+- <img width="802" height="272" alt="image" src="https://github.com/user-attachments/assets/9362fde7-7e2b-4903-9298-2f7e885321f6" />
+- We started by first finding the latest date in the orders table and calculate the date three months before that. Filtering the orders to keep only those within the last three months. Get the order IDs from these recent orders. Filter related tables (order items, payments, reviews) to keep only records linked to these recent orders. Filter customers to keep only those who made recent orders. Filter products to keep only those that appear in recent order items. Filter sellers to keep only those involved in recent order items. Filter product category translations to keep only categories present in recent products. Filter geolocation data to keep only zip codes for the filtered customers and sellers.
+- This was done to ensures all tables are temporally consistent (only recent data). Keep only relevant records for analysis, reducing noise and improving performance. Maintain relational integrity across all tables for downstream merging and analysis.
+
+- We then went on to merge the filtered data based on the recent 3 months
+- This was done to creates a single, unified DataFrame with all relevant information for each recent order and prepares the data for analysis, modeling, or visualization by having all features in one place.
+- <img width="964" height="890" alt="image" src="https://github.com/user-attachments/assets/7176bfb5-07ec-4c4f-bf8e-5317eecb51a6" />
+- As a result, a unified dataset with 11,777 entries and 44 columns was created, containing detailed transaction-level information suitable for in-depth analysis. Temporal coverage in this final dataset ranges from 2018-07-17 to 2018-10-17. Missing values in some columns reflect real-world data gaps such as unreviewed orders or incomplete delivery records.
+
+
+
 
 
 
