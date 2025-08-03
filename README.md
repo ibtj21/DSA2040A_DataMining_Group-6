@@ -373,6 +373,14 @@ For this dataset, feature engineering can:
 | `log_payment_value`    | Numerical (Transformed) | Log-transformed payment value to normalize data distribution.                    |
 
 
+ ### Key Insights & Business Implications
+ 
+-Customer Satisfaction: High review scores, but late deliveries can impact this.
+-Pricing & Shipping: Wide range, with outliers. Shipping costs are linked to product type and geography.
+-Regional Focus: São Paulo dominates; opportunity to expand in other states.
+-Product Mix: Some categories are premium, others are low-cost; inventory and marketing should reflect this.
+-Feature Engineering: New features (time, delay, log transforms) will improve model performance.
+
 
 
 
