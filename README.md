@@ -173,6 +173,7 @@ The DataFrame was then saved as a Parquet file (`loaded_data.parquet`) using `df
 - we created boxplots for price/freight value by category and state
 - This were the output of the boxplots
 - <img width="1007" height="601" alt="image" src="https://github.com/user-attachments/assets/7448ddba-e323-4076-9855-4785c762dea8" />
+
 The boxplot for **Price vs Product Category** provides insights into how prices vary across the top 15 product categories.
 
 - **Key Observations:**
@@ -212,6 +213,105 @@ The boxplot for **Freight Value vs Seller States** examines shipping costs from 
   - Sellers in **pe**, **es**, and **ce** incur **higher median freight values**, which may indicate these locations are farther from major customer bases or involve higher handling costs.
   - Most seller states have freight costs within a narrow range (20–35), showing general uniformity in shipping rates.
   - Some states like **se** and **pi** display **outliers** with extremely high freight costs, possibly for large shipments or distant deliveries.
+
+### Multivariate analysis
+- This helps us understand the interactions between multiple variables to help in decision making
+- we first decided to create a scatter plot of price vs Freight value by product category
+- This plot examines how product prices relate to freight value and whether this relationship varies across top product categories.
+- 
+- <img width="969" height="893" alt="image" src="https://github.com/user-attachments/assets/47de78d3-40ec-4ae0-abed-a7381f26cd6f" />
+
+- ##  Price vs. Freight Value by Top 5 Product Categories  
+**Visualization Used:** Scatter Plot colored by product categories.
+
+### Purpose:
+- To analyze how shipping costs relate to product prices across categories.  
+- To detect differences in freight strategies or product characteristics.
+
+### Detailed Insights:
+- **Distribution Patterns:**  
+  - Categories like **furniture_decor** and **auto** show higher freight values due to larger or heavier products.  
+  - Categories such as **books_general_interest** or **toys** have lower freight costs due to lighter items.
+
+- **Category-Specific Trends:**  
+  - **bed_bath_table:** Moderate to high freight with a wide range of prices.  
+  - **sports_leisure:** Variable freight depending on item type (large vs. small equipment).  
+
+- **Outliers:**  
+  - High-priced items with high freight costs appear as rare cases, significant for logistics analysis.
+
+### Business Implications:
+- Identifies categories where shipping costs are disproportionately high.  
+- Provides insights to optimize logistics and adjust pricing strategies.
+
+---
+- we then created a pairplot of key numerical variables
+- <img width="984" height="749" alt="image" src="https://github.com/user-attachments/assets/af3b0b71-5627-4e3c-8842-36b74661a3c1" />
+- <img width="983" height="286" alt="image" src="https://github.com/user-attachments/assets/63680834-da67-4a79-864c-defe4e9da65d" />
+- 
+## Pairwise Relationships between Key Numerical Features  
+**Visualization Used:** Pairplot (Scatterplot Matrix) of `price`, `freight_value`, `payment_value`, and `profit_margin`.
+
+### Purpose:
+- To explore relationships, correlations, and distributions among multiple numerical features.  
+- To identify potential patterns, clusters, or outliers.
+
+### Detailed Insights:
+- **Distributions (Diagonal Histograms):**  
+  - **Price:** Skewed with a peak at lower prices, long tail toward high prices.  
+  - **Freight Value:** Positively skewed; higher freight costs are less frequent.  
+  - **Payment Value:** Similar distribution to price; likely positively skewed.  
+  - **Profit Margin:** Bounded between 0 and 1, with possible skewness based on profit strategies.
+
+- **Pairwise Relationships:**  
+  - **Price vs. Freight Value:** Positive correlation; expensive items often have higher freight costs.  
+  - **Price vs. Payment Value:** Strong positive correlation; payment value rises with price.  
+  - **Price vs. Profit Margin:** Shows how profit margins vary with price.  
+  - **Freight Value vs. Payment Value:** Reflects relationship between shipping expenses and transaction size.
+
+- **Outliers & Clusters:**  
+  - Outliers indicate rare high-value transactions or potential anomalies.  
+  - Clusters may suggest distinct customer segments or product groupings.
+
+### Implication:
+These relationships help in feature engineering, guiding predictive modeling, and understanding underlying data structure.
+---
+
+-3. **Group-wise Aggregation: Average Price per Category per State**
+- This shows how product prices vary by product category and by customer state.
+- its code
+- <img width="853" height="279" alt="image" src="https://github.com/user-attachments/assets/fed36a1b-1410-48e6-91ba-bee81d5cb691" />
+- the output is
+- <img width="1075" height="884" alt="image" src="https://github.com/user-attachments/assets/81697726-f831-4b16-98e8-695837a33d0b" />
+- ##  Average Price per Product Category per Top 5 Customer States  
+**Visualization Used:** Grouped Bar Chart (Average Price by Product Category & State)
+
+###  Purpose:
+- To compare how product prices vary across different states.  
+- To uncover regional differences in demand and pricing.
+
+###  Detailed Insights:
+- **Regional Variations:**  
+  - States like **pr**, **rs**, and **sp** exhibit higher average prices for certain categories.  
+  - Wealthier states may have higher willingness to pay.
+- **Product Category Trends:**  
+  - Some categories (e.g., electronics, auto) show consistent pricing across states.  
+  - Others (e.g., garden_tools, books_imported) vary greatly by region.
+- **Customer Preferences:**  
+  - Regional differences suggest certain states favor specific categories, influencing demand.
+###  Business Implications:
+- Helps tailor regional pricing and marketing strategies.  
+- Supports inventory planning by understanding geographic purchasing patterns.
+---
+
+## ***Summary of Multivariate Analysis***
+- **Pairplot:** Revealed fundamental relationships guiding feature selection.  
+- **Scatter Plot:** Showed how freight relates to price, highlighting logistical challenges.  
+- **Regional Analysis:** Emphasized the impact of geography on pricing and demand.  
+***These insights provide a strong foundation for the next steps: **Feature Engineering*****
+---
+
+
 
 
 
