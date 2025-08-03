@@ -382,6 +382,9 @@ For this dataset, feature engineering can:
 -Feature Engineering: New features (time, delay, log transforms) will improve model performance.
 
 
+## Data Mining of the project 
+# Student Responsible : Angela
+
 
 
 
