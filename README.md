@@ -1,6 +1,6 @@
 # DSA2040A_DataMining_Group-6
 End-to-end data mining project analyzing inpatient healthcare costs in the USA. Includes ETL, exploratory analysis, mining techniques, and insights to uncover cost patterns and drivers in hospitalization data.
-READ-ME file 
+# READ-ME file 
 # Student Responsible : Levin913 and Angela
 We started the project with the ETL process. We picked the e-commerce dataset in Olist and performed the ETL process on it
 
@@ -73,6 +73,52 @@ ____
 - <img width="964" height="890" alt="image" src="https://github.com/user-attachments/assets/7176bfb5-07ec-4c4f-bf8e-5317eecb51a6" />
 - As a result, a unified dataset with 11,777 entries and 44 columns was created, containing detailed transaction-level information suitable for in-depth analysis. Temporal coverage in this final dataset ranges from 2018-07-17 to 2018-10-17. Missing values in some columns reflect real-world data gaps such as unreviewed orders or incomplete delivery records.
 
+### Cleaning the merged datasets
+<img width="1139" height="869" alt="image" src="https://github.com/user-attachments/assets/43d64841-6281-418e-8af9-7f2635df4786" />
+- we checked if there are any duplicates and found none but we were able to find that there were several missing values and we were able to get the percenatage of missing values in each column
+- we then removed columns with more than 50 % missing values
+- <img width="499" height="110" alt="image" src="https://github.com/user-attachments/assets/77f5a260-31f2-4ca7-8733-5f4c47231b94" />
+- we then went on forward to deal with the others
+- we began by filling date time columns with a related datetime column if known, else we used forward fill
+- and also filling missing numeric values with  mean or median using skewness check
+- <img width="893" height="661" alt="image" src="https://github.com/user-attachments/assets/0e48fe04-3bcd-467b-ad66-11112eba1343" />
+- we also filled missed categorical values with mode
+- <img width="852" height="295" alt="image" src="https://github.com/user-attachments/assets/399e8861-3e8d-4869-b3cf-b48617a28cc9" />
+
+- We were also able to add more columns to enable us derive more insights from the data
+- we added a profit margin column that shows how much of the product price is left after subtracting the freight costs
+- <img width="952" height="620" alt="image" src="https://github.com/user-attachments/assets/6f41a7cf-7c93-4a1d-a2a2-28468f0ce055" />
+- we also added the purchase frequency per customer which shows how often a customer makes a purchase
+- <img width="1161" height="353" alt="image" src="https://github.com/user-attachments/assets/a5ea9be9-9500-4e08-827d-593bd6c80d8f" />
+
+- we also handled outliers in the dataset to reduce noise in the dataset and keeping extreme values from skewwing models and visualizations
+- <img width="1017" height="809" alt="image" src="https://github.com/user-attachments/assets/81e7a8fb-2ea7-43a7-85b5-5de4df20e183" />
+- it was done by calculating every percentile in the dataset and then capping any value below the lower bound to the lower bound, and any value above the upper bound to the upper bound
+
+- we also standardized formats so that the dataset while have consistent formats through out
+- <img width="935" height="812" alt="image" src="https://github.com/user-attachments/assets/a49a0e3b-6a5b-49b0-b03d-da4ce9b84810" />
+- this prevents errors in merging filtering and grouping
+
+  ## Loading
+  - we then were able to load the cleaned dataset into its own Parquet file and then preview it to know if it was a success
+  <img width="1166" height="782" alt="image" src="https://github.com/user-attachments/assets/d08d3774-377f-4aef-8118-d3f560440e9a" />
+- #### Saving as Parquet:
+We created a new directory called `data/final/` if it didn't already exist using `os.makedirs()` with `exist_ok=True`.
+
+The DataFrame was then saved as a Parquet file (`loaded_data.parquet`) using `df.to_parquet()`. This format is preferred for analytics workflows due to its:
+
+- Smaller file size (compared to CSV)  
+- Faster read/write times  
+- Schema support and optimized columnar storage  
+
+
+
+
+
+
+
+
+- 
 
 
 
