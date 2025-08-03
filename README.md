@@ -150,8 +150,37 @@ The DataFrame was then saved as a Parquet file (`loaded_data.parquet`) using `df
   2. Payment Type: Credit card dominates.
   3. Customer/Seller State: São Paulo (SP) is the main hub.
   4. Product Category: Health & Beauty is top-selling.
+  5. Business is concentrated in certain regions and categories.
+  6. Payment and logistics are streamlined.
  
 ### Bivariate analysis
+- In this part we check for the relationships between two variables focusing on
+  i. correlation between numerical variables
+  ii. comparison of categorical variables with numerical variables
+  iii. Detection of patterns or trends
+- we began with a correlation heatmap to visualize relationships between numerical features
+- <img width="770" height="324" alt="image" src="https://github.com/user-attachments/assets/37a7fd67-4324-4ab3-96c4-1c145c5e3d99" />
+- <img width="1071" height="886" alt="image" src="https://github.com/user-attachments/assets/fb041818-6bed-4297-90a5-a7b0756efb23" />
+- We were able to draw some insights from this which are
+- <img width="1175" height="711" alt="image" src="https://github.com/user-attachments/assets/245e8d6d-3f21-471b-b0cb-407265acf98a" />
+- overall insights are :
+- 1. Some features are highly correlated (may need to drop/reduce for modeling).
+  2. Price and freight are linked.
+
+### Categorical vs Numerical variables
+-This helps identify **how categories influence numerical metrics** such as price, freight value, payment value, and review scores.
+- <img width="942" height="799" alt="image" src="https://github.com/user-attachments/assets/528b3422-8090-49ee-ac07-730a14cb2eaf" />
+- we created boxplots for price/freight value by category and state
+- This were the output of the boxplots
+- <img width="1007" height="601" alt="image" src="https://github.com/user-attachments/assets/7448ddba-e323-4076-9855-4785c762dea8" />
+- <img width="999" height="616" alt="image" src="https://github.com/user-attachments/assets/87b8dc07-bad5-45fe-8aa1-43dcb8c01087" />
+- <img width="1034" height="624" alt="image" src="https://github.com/user-attachments/assets/ef6fa699-32c6-4b04-90c2-4964bcd08018" />
+- <img width="1007" height="637" alt="image" src="https://github.com/user-attachments/assets/4c4846f1-462c-432e-91bb-ba4cc2b641f4" />
+
+
+
+
+
 
 
 
