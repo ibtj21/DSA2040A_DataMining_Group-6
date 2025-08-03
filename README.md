@@ -311,6 +311,70 @@ These relationships help in feature engineering, guiding predictive modeling, an
 ***These insights provide a strong foundation for the next steps: **Feature Engineering*****
 ---
 
+##  Feature Engineering
+
+### What is Feature Engineering?
+Feature engineering is the process of creating new input features or transforming existing ones to improve the performance of machine learning models. This step involves leveraging domain knowledge and data patterns to make the dataset more informative for modeling.
+
+### Why Are We Doing This?
+- **Improve Model Performance**: Well-engineered features help algorithms capture underlying relationships more effectively.
+- **Reduce Noise**: By transforming or aggregating features, we can remove irrelevant variations in the data.
+- **Capture Nonlinear Relationships**: Creating interaction terms or polynomial features can reveal complex relationships between variables.
+- **Handle Data Limitations**: Sometimes, raw data lacks meaningful indicators, so new features can fill this gap.
+
+### Typical Steps in Feature Engineering
+1. **Feature Creation**: Creating new variables from existing ones (e.g., profit ratio, days taken for delivery, price per weight).
+2. **Feature Transformation**: Applying log scaling, standardization, or encoding to prepare data for algorithms.
+3. **Feature Encoding**: Converting categorical variables into numerical representations (e.g., one-hot encoding, label encoding).
+4. **Feature Selection**: Choosing the most relevant features to avoid multicollinearity and reduce dimensionality.
+
+### Why It Matters in This Project?
+For this dataset, feature engineering can:
+- Extract time-based features (e.g., delivery delays, approval times).
+- Create ratios like `freight_value/price` to understand cost efficiency.
+- Encode categorical variables like product categories and states for modeling.
+- Aggregate or normalize features to capture meaningful patterns.
+
+## Step 1.Extracting Date-Time Features
+- We start by extracting useful components (year, month, day, hour) from the order_purchase_timestamp column.
+
+**Why?**
+
+- Time-based features help uncover seasonality, trends, and purchase behavior patterns, which can improve prediction and insights.
+- <img width="965" height="472" alt="image" src="https://github.com/user-attachments/assets/0284098b-1b39-4b90-bd5d-610e78289d8c" />
+
+## Step 2. Creating Delivery Delay Indicator
+
+- Next, we create a binary feature indicating whether an order was delivered after the estimated delivery date.
+
+**Why?**
+
+- Late deliveries often impact customer reviews and can be a critical business KPI.
+- <img width="909" height="411" alt="image" src="https://github.com/user-attachments/assets/da3e7d2f-16ef-4e44-b733-ad04e8e851fd" />
+## Step 5.Log Transformation of Skewed Variables
+
+- Finally, we reduce skewness in variables with long-tailed distributions (e.g., price, freight_value, payment_value).
+
+**Why?**
+
+- Log transformation helps stabilize variance and makes data more normal, improving model performance.
+- <img width="627" height="376" alt="image" src="https://github.com/user-attachments/assets/c621d995-76ad-4bee-8f0f-6d5a7b0127a2" />
+| **Feature Name**       | **Type**                | **Description**                                                                  |
+| ---------------------- | ----------------------- | -------------------------------------------------------------------------------- |
+| `purchase_year`        | Numerical               | Extracted year of purchase from the timestamp.                                   |
+| `purchase_month`       | Numerical               | Extracted month of purchase to analyze seasonality.                              |
+| `purchase_day`         | Numerical               | Day of the month when the purchase occurred.                                     |
+| `purchase_hour`        | Numerical               | Hour of purchase to identify peak purchase times.                                |
+| `actual_delivery_days` | Numerical               | Number of days taken to deliver the order.                                       |
+| `is_delayed`           | Binary (0/1)            | Indicator whether the order was delivered after the estimated delivery date.     |
+| `price_per_gram`       | Numerical               | Ratio of product price to product weight, useful for freight and pricing models. |
+| `log_price`            | Numerical (Transformed) | Log-transformed version of product price to reduce skewness.                     |
+| `log_freight_value`    | Numerical (Transformed) | Log-transformed freight cost for better model stability.                         |
+| `log_payment_value`    | Numerical (Transformed) | Log-transformed payment value to normalize data distribution.                    |
+
+
+
+
 
 
 
