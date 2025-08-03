@@ -1,5 +1,7 @@
 # DSA2040A_DataMining_Group-6
 End-to-end data mining project analyzing inpatient healthcare costs in the USA. Includes ETL, exploratory analysis, mining techniques, and insights to uncover cost patterns and drivers in hospitalization data.
+READ-ME file 
+# Student Responsible : Levin913 and Angela
 We started the project with the ETL process. We picked the e-commerce dataset in Olist and performed the ETL process on it
 
 # 🛒 Olist E-commerce Dataset: ETL Project
