@@ -109,16 +109,10 @@ The DataFrame was then saved as a Parquet file (`loaded_data.parquet`) using `df
 
 - Smaller file size (compared to CSV)  
 - Faster read/write times  
-- Schema support and optimized columnar storage  
+- Schema support and optimized columnar storage
 
 
-
-
-
-
-
-
-- 
+ # Exploratory Data Analysis
 
 
 
