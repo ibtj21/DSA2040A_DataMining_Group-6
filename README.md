@@ -173,9 +173,45 @@ The DataFrame was then saved as a Parquet file (`loaded_data.parquet`) using `df
 - we created boxplots for price/freight value by category and state
 - This were the output of the boxplots
 - <img width="1007" height="601" alt="image" src="https://github.com/user-attachments/assets/7448ddba-e323-4076-9855-4785c762dea8" />
+The boxplot for **Price vs Product Category** provides insights into how prices vary across the top 15 product categories.
+
+- **Key Observations:**
+  - Categories like **watches_gifts** and **industry_commerce_and_business** exhibit **higher median prices**, suggesting they are premium or specialized products.
+  - **Computers** and **home_appliances_2** also show relatively high prices, along with several outliers indicating a few extremely expensive items.
+  - **Cool_stuff** and **office_furniture** have **lower median prices**, highlighting these categories as more affordable.
+  - The **presence of many outliers** across categories implies significant price diversity within the same category.
+
 - <img width="999" height="616" alt="image" src="https://github.com/user-attachments/assets/87b8dc07-bad5-45fe-8aa1-43dcb8c01087" />
+
+The boxplot for **Freight Value vs Product Category** reveals shipping cost variations among product categories.
+
+- **Key Observations:**
+  - Categories like **kitchen_dining_laundry_garden_furniture**, **garden_tools**, and **furniture_living_room** have **higher median freight costs**, possibly due to larger or heavier items.
+  - **Fashion_male_clothing** and **books_imported** tend to have **lower freight costs**, reflecting smaller and lighter products.
+  - Outliers with **very high freight values** suggest occasional special shipping requirements or long-distance deliveries.
+    
 - <img width="1034" height="624" alt="image" src="https://github.com/user-attachments/assets/ef6fa699-32c6-4b04-90c2-4964bcd08018" />
+The boxplot for **Freight Value vs Customer States** helps to understand regional differences in shipping costs.
+
+- **Key Observations:**
+  - States like **ce**, **m**, **to**, and **pa** have **higher median freight values**, suggesting that deliveries to these areas are costlier—likely due to distance or logistics.
+  - Most states cluster around **freight values between 20 and 30**, indicating stable shipping costs for the majority of customers.
+  - Several **outliers** reflect shipments with abnormally high costs.
+
 - <img width="1007" height="637" alt="image" src="https://github.com/user-attachments/assets/4c4846f1-462c-432e-91bb-ba4cc2b641f4" />
+The boxplot for **Freight Value vs Seller States** examines shipping costs from different seller regions.
+
+- **Key Observations:**
+  - Sellers in **pe**, **es**, and **ce** incur **higher median freight values**, which may indicate these locations are farther from major customer bases or involve higher handling costs.
+  - Most seller states have freight costs within a narrow range (20–35), showing general uniformity in shipping rates.
+  - Some states like **se** and **pi** display **outliers** with extremely high freight costs, possibly for large shipments or distant deliveries.
+ 
+  The boxplot for **Freight Value vs Seller States** examines shipping costs from different seller regions.
+
+- **Key Observations:**
+  - Sellers in **pe**, **es**, and **ce** incur **higher median freight values**, which may indicate these locations are farther from major customer bases or involve higher handling costs.
+  - Most seller states have freight costs within a narrow range (20–35), showing general uniformity in shipping rates.
+  - Some states like **se** and **pi** display **outliers** with extremely high freight costs, possibly for large shipments or distant deliveries.
 
 
 
