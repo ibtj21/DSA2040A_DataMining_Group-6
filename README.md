@@ -412,8 +412,6 @@ For this dataset, feature engineering can:
 
 ## Data Mining
 # Student Responsible: Angela
-# DSA2040A_DataMining_Group-6
-
 ---
 
 ## Data Mining and Predictive Modeling  
@@ -487,9 +485,6 @@ Each model was evaluated using:
 ---
 
 ## Feature Importance
-
-![Feature Importance Chart](feature_importance_chart.png)
-
 | Rank | Feature         | Description                                      |
 |------|------------------|--------------------------------------------------|
 | 1    | `freight_value`  | Shipping cost influences customer satisfaction  |
