@@ -16,7 +16,7 @@ The workflow spans from **data extraction and transformation (ETL)** to **explor
 
 ---
 
-## 🛠️ Project Workflow
+## Project Workflow
 1. **ETL Process** – Data extraction, cleaning, and transformation.  
 2. **Exploratory Data Analysis (EDA)** – Identifying trends and relationships.  
 3. **Dashboards** – Building interactive dashboards for visualization.  
@@ -24,19 +24,19 @@ The workflow spans from **data extraction and transformation (ETL)** to **explor
 
 ---
 
-## 🗂️ Olist E-commerce Dataset
+## Olist E-commerce Dataset
 
 The Olist dataset represents real-world data from **Brazil’s largest e-commerce platform**.  
 It consists of **relational CSV files** capturing transactions, customer behavior, and seller performance.
 
-### 📌 Dataset Overview
+### Dataset Overview
 - **Source**: Olist (public dataset)  
 - **Focus**: Last 3 months of sales  
 - **Structure**: Multiple tables linked via keys like `order_id`, `product_id`, and `customer_id`.
 
 ---
 
-### 📄 Key Files Used
+### Key Files Used
 
 | File Name                            | Description |
 |-------------------------------------|-------------|
@@ -51,28 +51,12 @@ It consists of **relational CSV files** capturing transactions, customer behavio
 | `product_category_name_translation.csv` | English translations of product categories |
 
 ---
+##  Section by Hana – ETL Process: Olist Brazilian E-commerce Dataset
 
-## 🧹 ETL Phase Details
-**Notebook:** `1_extract_transform.ipynb`  
-**Objective:** Perform Extract and Transform operations on the Olist dataset, preparing it for analysis by:  
-- Selecting data from the last 3 months of sales.  
-- Cleaning missing values and inconsistencies.  
-- Merging relational tables for seamless analysis.  
+Olist is one of **Brazil’s largest online marketplaces**, enabling small and medium-sized businesses to sell products through a central platform.  
+The Olist dataset contains multiple **relational CSV files**, where each file captures a different aspect of the order lifecycle — customers, sellers, products, payments, and reviews.
 
 ---
-
-## 🚀 Next Steps
-- **EDA**: Analyze and visualize data distributions and relationships.  
-- **Dashboards**: Develop interactive tools to present insights dynamically.  
-- **Data Mining**: Apply clustering, association, and predictive techniques to uncover deeper patterns.
-
----
-
-## ✅ Conclusion
-The ETL process successfully prepared the dataset, ensuring it is clean, structured, and ready for subsequent **EDA, dashboards, and data mining** phases.
-
----
-
 ## Extraction 
 -Data was extracted from the nine datasets
 
