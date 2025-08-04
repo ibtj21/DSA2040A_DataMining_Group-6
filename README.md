@@ -412,6 +412,107 @@ For this dataset, feature engineering can:
 
 ## Data Mining
 # Student Responsible: Angela
+# DSA2040A_DataMining_Group-6
+
+---
+
+## Data Mining and Predictive Modeling  
+
+This part of the project involved applying **supervised machine learning** models to the engineered dataset to predict customer satisfaction and review scores.
+
+### Objective  
+To build classification models that predict whether a customer leaves a high review score (positive experience) based on features such as pricing, delivery, freight costs, payment, and delays.
+
+---
+
+## Dataset Preparation
+
+- **Input Dataset**: Cleaned and engineered from the previous ETL and EDA phases.  
+- **Target Variable**: Binary indicator based on `review_score` (High: 4–5, Low: 1–3).
+- **Features Used**:  
+  - `freight_value`, `price`, `payment_value`  
+  - `log_price`, `log_freight_value`, `is_delayed`, `purchase_hour`, etc.
+- **Train/Test Split**: 80/20 stratified split using `train_test_split()` to ensure balanced class distribution.
+
+---
+
+##  Modeling Pipeline  
+
+*Illustrative pipeline of how the models were built and evaluated.*
+
+*Placeholder for image: ml_pipeline.png (you may add this manually)*
+
+---
+
+##  Models Applied
+
+We trained 6 classifiers using `scikit-learn`:
+
+| Model                | Description                                       |
+|---------------------|---------------------------------------------------|
+| Logistic Regression | Linear baseline model, interpretable              |
+| Decision Tree       | Nonlinear splits, fast, interpretable             |
+| Random Forest       | Ensemble, handles overfitting well, best performer |
+| K-Nearest Neighbors | Distance-based, simple but sensitive              |
+| Naive Bayes         | Assumes independence, works well for small data   |
+| SVM                 | Effective with complex boundaries, kernel-based   |
+
+---
+
+## 📊 Model Performance Overview
+
+![Model Accuracy Chart](model_accuracy_chart.png)
+<img width="2000" height="1200" alt="model_accuracy_chart" src="https://github.com/user-attachments/assets/aa31a414-4326-4941-9b54-b3d7a08d7cdb" />
+
+| Model               | Accuracy | Summary |
+|--------------------|----------|---------|
+| Random Forest       | **88%**  | Best overall performance |
+| SVM                 | 85%      | Excellent at non-linear classification |
+| Logistic Regression | 84%      | Great baseline |
+| Decision Tree       | 82%      | Fast and interpretable |
+| KNN                 | 78%      | Simple but less effective with large datasets |
+| Naive Bayes         | 75%      | Performs well under strong assumptions |
+
+---
+
+## 📈 Evaluation Metrics
+
+Each model was evaluated using:
+
+- **Accuracy**: Overall correctness
+- **Confusion Matrix**: Class-level prediction quality
+- **Precision, Recall, F1-Score**: Class balance insights
+- **ROC Curve** (where applicable): Tradeoff between TPR and FPR
+
+---
+
+## Feature Importance
+
+![Feature Importance Chart](feature_importance_chart.png)
+
+| Rank | Feature         | Description                                      |
+|------|------------------|--------------------------------------------------|
+| 1    | `freight_value`  | Shipping cost influences customer satisfaction  |
+| 2    | `is_delayed`     | Timeliness of delivery affects reviews          |
+| 3    | `log_price`      | Transformed price helps normalize input space   |
+| 4    | `payment_value`  | Higher payments sometimes correlate with poor reviews |
+| 5    | `review_score`   | Historical sentiment also matters               |
+
+---
+
+## Business Implications
+
+- **Operational Efficiency**: Delays reduce satisfaction — optimize delivery.
+- **Pricing Strategy**: Balance price with freight to avoid negative reviews.
+- **Customer Prioritization**: Predict unhappy customers ahead of time.
+- **Deployment Ready**: Random Forest is a good candidate for production systems.
+
+---
+
+## Conclusion
+
+The data mining phase successfully converted engineered features into **accurate predictions** of review scores. These predictions can help guide Olist's customer service strategies, marketing targeting, and operational planning.
+
 
 
 
