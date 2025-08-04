@@ -459,7 +459,6 @@ We trained 6 classifiers using `scikit-learn`:
 
 ## 📊 Model Performance Overview
 
-![Model Accuracy Chart](model_accuracy_chart.png)
 <img width="2000" height="1200" alt="model_accuracy_chart" src="https://github.com/user-attachments/assets/aa31a414-4326-4941-9b54-b3d7a08d7cdb" />
 
 | Model               | Accuracy | Summary |
