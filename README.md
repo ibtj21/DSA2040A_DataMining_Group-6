@@ -51,6 +51,8 @@ It consists of **relational CSV files** capturing transactions, customer behavio
 | `product_category_name_translation.csv` | English translations of product categories |
 
 ---
+
+
 ##  Section by Hana – ETL Process: Olist Brazilian E-commerce Dataset
 
 Olist is one of **Brazil’s largest online marketplaces**, enabling small and medium-sized businesses to sell products through a central platform.  
@@ -61,6 +63,7 @@ The Olist dataset contains multiple **relational CSV files**, where each file ca
 -Data was extracted from the nine datasets
 
 <img width="1090" height="289" alt="Image" src="https://github.com/user-attachments/assets/efb5e29d-9ce7-4e55-a0ad-958d2116ee69" />
+
 ---
 
 ###  *A. Initial Data Inspection*
@@ -146,6 +149,8 @@ The first step in the ETL process was to **inspect the raw data** to understand 
 </table>
 </div>
 
+**Interpretation of the Output:**  
+
 | Column Name                   | Description                                                                 |
 |-------------------------------|-----------------------------------------------------------------------------|
 | order_id                      | Unique identifier for each order.                                           |
@@ -158,6 +163,189 @@ The first step in the ETL process was to **inspect the raw data** to understand 
 | order_estimated_delivery_date | Estimated delivery date given at the time of purchase.                     |
 
 ---
+
+####  order_items Table
+
+**Output:**  
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>order_id</th>
+      <th>order_item_id</th>
+      <th>product_id</th>
+      <th>seller_id</th>
+      <th>shipping_limit_date</th>
+      <th>price</th>
+      <th>freight_value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>00010242fe8c5a6d1ba2dd792cb16214</td>
+      <td>1</td>
+      <td>4244733e06e7ecb4970a6e2683c13e61</td>
+      <td>48436dade18ac8b2bce089ec2a041202</td>
+      <td>2017-09-19 09:45:35</td>
+      <td>58.90</td>
+      <td>13.29</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>00018f77f2f0320c557190d7a144bdd3</td>
+      <td>1</td>
+      <td>e5f2d52b802189ee658865ca93d83a8f</td>
+      <td>dd7ddc04e1b6c2c614352b383efe2d36</td>
+      <td>2017-05-03 11:05:13</td>
+      <td>239.90</td>
+      <td>19.93</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>000229ec398224ef6ca0657da4fc703e</td>
+      <td>1</td>
+      <td>c777355d18b72b67abbeef9df44fd0fd</td>
+      <td>5b51032eddd242adc84c38acab88f23d</td>
+      <td>2018-01-18 14:48:30</td>
+      <td>199.00</td>
+      <td>17.87</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>00024acbcdf0a6daa1e931b038114c75</td>
+      <td>1</td>
+      <td>7634da152a4610f1595efa32f14722fc</td>
+      <td>9d7a1d34a5052409006425275ba1c2b4</td>
+      <td>2018-08-15 10:10:18</td>
+      <td>12.99</td>
+      <td>12.79</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>00042b26cf59d7ce69dfabb4e55b4fd9</td>
+      <td>1</td>
+      <td>ac6c3623068f30de03045865e4e10089</td>
+      <td>df560393f3a51e74553ab94004ba5c87</td>
+      <td>2017-02-13 13:57:51</td>
+      <td>199.90</td>
+      <td>18.14</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+**Interpretation of the Output:**  
+| Column Name         | Description                                                                 |
+|---------------------|-----------------------------------------------------------------------------|
+| order_id            | Unique identifier for each order (links to orders table).                   |
+| order_item_id       | The item number within the order (1 for the first item, 2 for the second…). |
+| product_id          | Unique ID for the purchased product (links to products table).              |
+| seller_id           | Unique ID of the seller responsible for this item (links to sellers table). |
+| shipping_limit_date | Deadline for the seller to ship the item.                                   |
+| price               | Price paid for the item (excluding shipping).                               |
+| freight_value       | Shipping fee charged for the item.                                          |
+
+---
+
+####  products Table
+
+**Output:**
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>product_id</th>
+      <th>product_category_name</th>
+      <th>product_name_lenght</th>
+      <th>product_description_lenght</th>
+      <th>product_photos_qty</th>
+      <th>product_weight_g</th>
+      <th>product_length_cm</th>
+      <th>product_height_cm</th>
+      <th>product_width_cm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1e9e8ef04dbcff4541ed26657ea517e5</td>
+      <td>perfumaria</td>
+      <td>40.0</td>
+      <td>287.0</td>
+      <td>1.0</td>
+      <td>225.0</td>
+      <td>16.0</td>
+      <td>10.0</td>
+      <td>14.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3aa071139cb16b67ca9e5dea641aaa2f</td>
+      <td>artes</td>
+      <td>44.0</td>
+      <td>276.0</td>
+      <td>1.0</td>
+      <td>1000.0</td>
+      <td>30.0</td>
+      <td>18.0</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>96bd76ec8810374ed1b65e291975717f</td>
+      <td>esporte_lazer</td>
+      <td>46.0</td>
+      <td>250.0</td>
+      <td>1.0</td>
+      <td>154.0</td>
+      <td>18.0</td>
+      <td>9.0</td>
+      <td>15.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>cef67bcfe19066a932b7673e239eb23d</td>
+      <td>bebes</td>
+      <td>27.0</td>
+      <td>261.0</td>
+      <td>1.0</td>
+      <td>371.0</td>
+      <td>26.0</td>
+      <td>4.0</td>
+      <td>26.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>9dc1a7de274444849c219cff195d0b71</td>
+      <td>utilidades_domesticas</td>
+      <td>37.0</td>
+      <td>402.0</td>
+      <td>4.0</td>
+      <td>625.0</td>
+      <td>20.0</td>
+      <td>17.0</td>
+      <td>13.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+**Interpretation of the Output:**  
+| Column Name                    | Description                                                                 |
+|-------------------------------|-----------------------------------------------------------------------------|
+| `product_id`                  | Unique identifier for each product.                                        |
+| `product_category_name`       | Category name of the product (e.g., `perfumaria`, `moveis_decoracao`).    |
+| `product_name_lenght`         | Number of characters in the product's name.                                |
+| `product_description_lenght`  | Number of characters in the product's description.                         |
+| `product_photos_qty`          | Number of photos provided for the product.                                 |
+| `product_weight_g`            | Weight of the product in grams.                                            |
+| `product_length_cm`           | Length of the product in centimeters.                                      |
+| `product_height_cm`           | Height of the product in centimeters.                                      |
+| `product_width_cm`            | Width of the product in centimeters.                                       |
+
+
 ### *B. Initial Inspection Observations*
 
 From the initial `.info()` checks across the Olist datasets, we observe the following:
