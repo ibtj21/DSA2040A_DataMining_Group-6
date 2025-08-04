@@ -1,36 +1,77 @@
-# DSA2040A_DataMining_Group-6
-## Overview
-This project is an end-to-end data analytics and mining pipeline applied to **Olist E-commerce dataset**.
-The workflow spans from data extraction and transformation (ETL) to exploratory analysis, interactive dashboards, and data mining to uncover meaningful patterns and insights.
-# READ-ME file 
-# Student Responsible: Levin913 
-We started the project with the ETL process. We picked the e-commerce dataset in Olist and performed the ETL process on it
+#  DSA2040A_DataMining_Group-6
 
-#  Olist E-commerce Dataset: ETL Project
+##  Overview
+This project is an **end-to-end data analytics and mining pipeline** applied to the **Olist E-commerce dataset**.  
+The workflow spans from **data extraction and transformation (ETL)** to **exploratory analysis**, **interactive dashboards**, and **data mining** to uncover meaningful patterns and insights.
 
-**Author**: Hana  
-**Notebook**: `1_extract_transform.ipynb`  
-**Objective**: Perform Extract and Transform operations on Brazil’s largest e-commerce platform dataset (Olist), focusing on the last 3 months of sales.
+---
 
-##  Dataset Overview
+##  Team & Responsibilities  
+- **ETL Phase Lead:** Hana Gashaw
+- **EDA Phase leads:** Trizzah Nzioka & Ted Korir
+- **Data Mining leads:** Selmah Tzindori & Hana Gashaw
+- **Dashboard lead:** Selmah Tzindori
+- **Documentation:** Levin Ekuam &Angela Irungu
+ 
 
-The Olist dataset consists of **relational CSV files** representing various aspects of Brazil’s online marketplace.
+---
 
-###  Key Files Used
+## 🛠️ Project Workflow
+1. **ETL Process** – Data extraction, cleaning, and transformation.  
+2. **Exploratory Data Analysis (EDA)** – Identifying trends and relationships.  
+3. **Dashboards** – Building interactive dashboards for visualization.  
+4. **Data Mining** – Discovering hidden patterns using analytical techniques.  
 
-| File Name | Description |
-|----------|-------------|
-| `olist_orders_dataset.csv` | Order metadata (status, timestamps) |
-| `olist_order_items_dataset.csv` | Products per order |
-| `olist_products_dataset.csv` | Product details (name, category, dimensions) |
-| `olist_order_payments_dataset.csv` | Payment method and amount |
-| `olist_order_reviews_dataset.csv` | Star ratings and text reviews |
-| `olist_customers_dataset.csv` | Customer location info |
-| `olist_sellers_dataset.csv` | Seller location info |
-| `olist_geolocation_dataset.csv` | Postal code coordinates |
+---
+
+## 🗂️ Olist E-commerce Dataset
+
+The Olist dataset represents real-world data from **Brazil’s largest e-commerce platform**.  
+It consists of **relational CSV files** capturing transactions, customer behavior, and seller performance.
+
+### 📌 Dataset Overview
+- **Source**: Olist (public dataset)  
+- **Focus**: Last 3 months of sales  
+- **Structure**: Multiple tables linked via keys like `order_id`, `product_id`, and `customer_id`.
+
+---
+
+### 📄 Key Files Used
+
+| File Name                            | Description |
+|-------------------------------------|-------------|
+| `olist_orders_dataset.csv`          | Order metadata (status, timestamps) |
+| `olist_order_items_dataset.csv`     | Products per order |
+| `olist_products_dataset.csv`        | Product details (name, category, dimensions) |
+| `olist_order_payments_dataset.csv`  | Payment method and amount |
+| `olist_order_reviews_dataset.csv`   | Star ratings and text reviews |
+| `olist_customers_dataset.csv`       | Customer location info |
+| `olist_sellers_dataset.csv`         | Seller location info |
+| `olist_geolocation_dataset.csv`     | Postal code coordinates |
 | `product_category_name_translation.csv` | English translations of product categories |
 
-- The data was relational because the tables are linked via keys like `order_id`, `product_id`, and `customer_id`, making it ideal for multi-table analysis.
+---
+
+## 🧹 ETL Phase Details
+**Notebook:** `1_extract_transform.ipynb`  
+**Objective:** Perform Extract and Transform operations on the Olist dataset, preparing it for analysis by:  
+- Selecting data from the last 3 months of sales.  
+- Cleaning missing values and inconsistencies.  
+- Merging relational tables for seamless analysis.  
+
+---
+
+## 🚀 Next Steps
+- **EDA**: Analyze and visualize data distributions and relationships.  
+- **Dashboards**: Develop interactive tools to present insights dynamically.  
+- **Data Mining**: Apply clustering, association, and predictive techniques to uncover deeper patterns.
+
+---
+
+## ✅ Conclusion
+The ETL process successfully prepared the dataset, ensuring it is clean, structured, and ready for subsequent **EDA, dashboards, and data mining** phases.
+
+---
 
 ## Extraction 
 -Data was extracted from the nine datasets
