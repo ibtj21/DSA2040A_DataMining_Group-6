@@ -764,9 +764,10 @@ The Olist dataset contains multiple **relational CSV files**, where each file ca
 
 ---
 
--Its structure was then inspected in the same way as creating a dictionary, first looping through it as the structure is inspected and printed
+Its structure was then inspected in the same way as creating a dictionary, first looping through it as the structure is inspected and printed
 
 **Code Used**
+
 <img width="676" height="304" alt="Image" src="https://github.com/user-attachments/assets/8ed133d2-2756-4f8f-8814-460c19ffa910" />
 
 **Output**
@@ -783,10 +784,6 @@ The Olist dataset contains multiple **relational CSV files**, where each file ca
 | **Sellers**           | 3,095     | 4       | `seller_id`, `seller_zip_code_prefix` | No missing values; duplicates in seller entries |
 | **Geolocation**       | 1,000,163 | 5       | `geolocation_zip_code_prefix`, `lat`, `lng` | Duplicates for many ZIP codes; coordinates inconsistent |
 | **Category Translation** | 71     | 2       | `product_category_name`, `product_category_name_english` | No missing values; redundant entries |
-
----
-
-
 
 ---
 
