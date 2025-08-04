@@ -1193,115 +1193,51 @@ For this dataset, feature engineering can:
 -Product Mix: Some categories are premium, others are low-cost; inventory and marketing should reflect this.
 -Feature Engineering: New features (time, delay, log transforms) will improve model performance.
 
-
-## Data Mining
-# Student Responsible: Angela
 ---
 
-## Data Mining and Predictive Modeling  
+##  Data Mining & Modeling Process
 
-This part of the project involved applying **supervised machine learning** models to the engineered dataset to predict customer satisfaction and review scores.
+After preparing and cleaning the dataset through the ETL pipeline, we proceeded to the **data mining and modeling phase**.  
+This stage aimed to uncover **hidden patterns**, **group similar entities**, and **predict outcomes** using machine learning techniques.  
 
-### Objective  
-To build classification models that predict whether a customer leaves a high review score (positive experience) based on features such as pricing, delivery, freight costs, payment, and delays.
+We applied a combination of:
+- **Unsupervised Learning** (for discovering natural groupings and patterns)  
+- **Supervised Learning** (for predictive modeling tasks)  
 
----
+The process involved:
+1. **Feature Selection & Engineering** – choosing relevant numerical and categorical attributes.  
+2. **Data Scaling & Encoding** – ensuring variables were properly normalized and encoded.  
+3. **Model Training & Evaluation** – applying algorithms, tuning parameters, and assessing performance.  
 
-## Dataset Preparation
-
-- **Input Dataset**: Cleaned and engineered from the previous ETL and EDA phases.  
-- **Target Variable**: Binary indicator based on `review_score` (High: 4–5, Low: 1–3).
-- **Features Used**:  
-  - `freight_value`, `price`, `payment_value`  
-  - `log_price`, `log_freight_value`, `is_delayed`, `purchase_hour`, etc.
-- **Train/Test Split**: 80/20 stratified split using `train_test_split()` to ensure balanced class distribution.
+The following sections outline the **algorithms used**, their **working principles**, and **how they were applied** to our dataset to generate meaningful insights.
 
 ---
 
-##  Modeling Pipeline  
+###  K-Means Clustering
 
-*Illustrative pipeline of how the models were built and evaluated.*
+K-Means is an **unsupervised algorithm** that groups data into **K clusters** by minimizing differences within clusters and maximizing differences between them.  
+It works by repeatedly assigning points to the nearest centroid and updating centroid positions until stable clusters are formed.
 
-*Placeholder for image: ml_pipeline.png (you may add this manually)*
 
----
 
-##  Models Applied
+####  Application in This Project
+We applied K-Means to segment customers/orders based on attributes such as:
+- `payment_value`  
+- `purchase_frequency`  
+- `product_weight_g`  
 
-We trained 6 classifiers using `scikit-learn`:
+The clustering revealed distinct patterns, including:
+- **High-value customers**  
+- **Bulk buyers**  
+- **Frequent buyers**  
 
-| Model                | Description                                       |
-|---------------------|---------------------------------------------------|
-| Logistic Regression | Linear baseline model, interpretable              |
-| Decision Tree       | Nonlinear splits, fast, interpretable             |
-| Random Forest       | Ensemble, handles overfitting well, best performer |
-| K-Nearest Neighbors | Distance-based, simple but sensitive              |
-| Naive Bayes         | Assumes independence, works well for small data   |
-| SVM                 | Effective with complex boundaries, kernel-based   |
-
----
-
-## 📊 Model Performance Overview
-
-<img width="2000" height="1200" alt="model_accuracy_chart" src="https://github.com/user-attachments/assets/aa31a414-4326-4941-9b54-b3d7a08d7cdb" />
-
-| Model               | Accuracy | Summary |
-|--------------------|----------|---------|
-| Random Forest       | **88%**  | Best overall performance |
-| SVM                 | 85%      | Excellent at non-linear classification |
-| Logistic Regression | 84%      | Great baseline |
-| Decision Tree       | 82%      | Fast and interpretable |
-| KNN                 | 78%      | Simple but less effective with large datasets |
-| Naive Bayes         | 75%      | Performs well under strong assumptions |
+These segments provided insights into customer behavior, supporting better decision-making.
 
 ---
 
-## 📈 Evaluation Metrics
-
-Each model was evaluated using:
-
-- **Accuracy**: Overall correctness
-- **Confusion Matrix**: Class-level prediction quality
-- **Precision, Recall, F1-Score**: Class balance insights
-- **ROC Curve** (where applicable): Tradeoff between TPR and FPR
+<img width="1086" height="446" alt="Image" src="https://github.com/user-attachments/assets/5cc47d21-744d-49d6-ad6c-20b7bb0d0277" />
 
 ---
-
-## Feature Importance
-| Rank | Feature         | Description                                      |
-|------|------------------|--------------------------------------------------|
-| 1    | `freight_value`  | Shipping cost influences customer satisfaction  |
-| 2    | `is_delayed`     | Timeliness of delivery affects reviews          |
-| 3    | `log_price`      | Transformed price helps normalize input space   |
-| 4    | `payment_value`  | Higher payments sometimes correlate with poor reviews |
-| 5    | `review_score`   | Historical sentiment also matters               |
-
----
-
-## Business Implications
-
-- **Operational Efficiency**: Delays reduce satisfaction — optimize delivery.
-- **Pricing Strategy**: Balance price with freight to avoid negative reviews.
-- **Customer Prioritization**: Predict unhappy customers ahead of time.
-- **Deployment Ready**: Random Forest is a good candidate for production systems.
-
----
-
-## Conclusion
-
-The data mining phase successfully converted engineered features into **accurate predictions** of review scores. These predictions can help guide Olist's customer service strategies, marketing targeting, and operational planning.
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
