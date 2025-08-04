@@ -345,6 +345,162 @@ The first step in the ETL process was to **inspect the raw data** to understand 
 | `product_height_cm`           | Height of the product in centimeters.                                      |
 | `product_width_cm`            | Width of the product in centimeters.                                       |
 
+---
+
+####  payments Table
+
+**Output:**
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>order_id</th>
+      <th>payment_sequential</th>
+      <th>payment_type</th>
+      <th>payment_installments</th>
+      <th>payment_value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>b81ef226f3fe1789b1e8b2acac839d17</td>
+      <td>1</td>
+      <td>credit_card</td>
+      <td>8</td>
+      <td>99.33</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>a9810da82917af2d9aefd1278f1dcfa0</td>
+      <td>1</td>
+      <td>credit_card</td>
+      <td>1</td>
+      <td>24.39</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>25e8ea4e93396b6fa0d3dd708e76c1bd</td>
+      <td>1</td>
+      <td>credit_card</td>
+      <td>1</td>
+      <td>65.71</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ba78997921bbcdc1373bb41e913ab953</td>
+      <td>1</td>
+      <td>credit_card</td>
+      <td>8</td>
+      <td>107.78</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>42fdf880ba16b47b59251dd489d4441a</td>
+      <td>1</td>
+      <td>credit_card</td>
+      <td>2</td>
+      <td>128.45</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+**Interpretation of the Output:** 
+| Column Name            | Description                                                                 |
+|------------------------|-----------------------------------------------------------------------------|
+| `order_id`             | Unique identifier linking to the `orders` table.                            |
+| `payment_sequential`   | tells us how many payment types were used for a single order. |
+| `payment_type`         | Type of payment used (e.g., `credit_card`, `boleto`, `voucher`, `debit_card`). |
+| `payment_installments` | tells us how many times a payment is split, like "3 monthly payments. |
+| `payment_value`        | Amount paid by the customer (in BRL – Brazilian Real).(price + freight_value)|
+
+---
+
+####  reviews Table
+
+**Output:**
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>review_id</th>
+      <th>order_id</th>
+      <th>review_score</th>
+      <th>review_comment_title</th>
+      <th>review_comment_message</th>
+      <th>review_creation_date</th>
+      <th>review_answer_timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>7bc2406110b926393aa56f80a40eba40</td>
+      <td>73fc7af87114b39712e6da79b0a377eb</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2018-01-18 00:00:00</td>
+      <td>2018-01-18 21:46:59</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>80e641a11e56f04c1ad469d5645fdfde</td>
+      <td>a548910a1c6147796b98fdf73dbeba33</td>
+      <td>5</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2018-03-10 00:00:00</td>
+      <td>2018-03-11 03:05:13</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>228ce5500dc1d8e020d8d1322874b6f0</td>
+      <td>f9e4b658b201a9f2ecdecbb34bed034b</td>
+      <td>5</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2018-02-17 00:00:00</td>
+      <td>2018-02-18 14:36:24</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>e64fb393e7b32834bb789ff8bb30750e</td>
+      <td>658677c97b385a9be170737859d3511b</td>
+      <td>5</td>
+      <td>NaN</td>
+      <td>Recebi bem antes do prazo estipulado.</td>
+      <td>2017-04-21 00:00:00</td>
+      <td>2017-04-21 22:02:06</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>f7c4243c7fe1938f181bec41a392bdeb</td>
+      <td>8e6bfb81e283fa7e4f11123a3fb894f1</td>
+      <td>5</td>
+      <td>NaN</td>
+      <td>Parabéns lojas lannister adorei comprar pela I...</td>
+      <td>2018-03-01 00:00:00</td>
+      <td>2018-03-02 10:26:53</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+**Interpretation of the Output:**
+
+| Column Name              | Description                                                                 |
+|--------------------------|-----------------------------------------------------------------------------|
+| `review_id`              | Unique identifier for the review                                            |
+| `order_id`               | ID of the order being reviewed (connects to orders table)                   |
+| `review_score`           | Score given by the customer (1 to 5 stars)                                  |
+| `review_comment_title`   | Optional title for the review (short summary)                |
+| `review_comment_message` | Detailed review message provided by the customer                            |
+| `review_creation_date`   | Date when the customer submitted the review                                 |
+| `review_answer_timestamp`| Timestamp when Olist responded or processed the review                      |
+
+---
 
 ### *B. Initial Inspection Observations*
 
