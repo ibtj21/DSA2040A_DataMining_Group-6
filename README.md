@@ -68,6 +68,7 @@ The Olist dataset contains multiple **relational CSV files**, where each file ca
 
 ###  *A. Initial Data Inspection*
 The first step in the ETL process was to **inspect the raw data** to understand its structure, completeness, and potential issues.
+Use the **.head()** function in each table.
 
 ---
 
@@ -499,6 +500,267 @@ The first step in the ETL process was to **inspect the raw data** to understand 
 | `review_comment_message` | Detailed review message provided by the customer                            |
 | `review_creation_date`   | Date when the customer submitted the review                                 |
 | `review_answer_timestamp`| Timestamp when Olist responded or processed the review                      |
+
+---
+
+####  Customers Table
+
+**Output:**
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>customer_id</th>
+      <th>customer_unique_id</th>
+      <th>customer_zip_code_prefix</th>
+      <th>customer_city</th>
+      <th>customer_state</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>06b8999e2fba1a1fbc88172c00ba8bc7</td>
+      <td>861eff4711a542e4b93843c6dd7febb0</td>
+      <td>14409</td>
+      <td>franca</td>
+      <td>SP</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>18955e83d337fd6b2def6b18a428ac77</td>
+      <td>290c77bc529b7ac935b93aa66c333dc3</td>
+      <td>9790</td>
+      <td>sao bernardo do campo</td>
+      <td>SP</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4e7b3e00288586ebd08712fdd0374a03</td>
+      <td>060e732b5b29e8181a18229c7b0b2b5e</td>
+      <td>1151</td>
+      <td>sao paulo</td>
+      <td>SP</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>b2b6027bc5c5109e529d4dc6358b12c3</td>
+      <td>259dac757896d24d7702b9acbbff3f3c</td>
+      <td>8775</td>
+      <td>mogi das cruzes</td>
+      <td>SP</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4f2d8ab171c80ec8364f7c12e35b23ad</td>
+      <td>345ecd01c38d18a9036ed96c73b8d066</td>
+      <td>13056</td>
+      <td>campinas</td>
+      <td>SP</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+**Interpretation of the Output:**
+
+| Column Name                | Description                                                                 |
+|----------------------------|-----------------------------------------------------------------------------|
+| `customer_id`              | A unique identifier for a **customer account**, consistent across orders.   |
+| `customer_unique_id`       | A hashed version of a real person’s ID, consistent across duplicate accounts
+|                             | or email  changes.|
+| `customer_zip_code_prefix` | First digits of the customer's ZIP code                                     |
+| `customer_city`            | City of the customer                                                        |
+| `customer_state`           | State abbreviation where the customer resides (e.g., SP, RJ)               |
+
+---
+####  Sellers Table
+
+**Output:**
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>seller_id</th>
+      <th>seller_zip_code_prefix</th>
+      <th>seller_city</th>
+      <th>seller_state</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3442f8959a84dea7ee197c632cb2df15</td>
+      <td>13023</td>
+      <td>campinas</td>
+      <td>SP</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>d1b65fc7debc3361ea86b5f14c68d2e2</td>
+      <td>13844</td>
+      <td>mogi guacu</td>
+      <td>SP</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ce3ad9de960102d0677a81f5d0bb7b2d</td>
+      <td>20031</td>
+      <td>rio de janeiro</td>
+      <td>RJ</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>c0f3eea2e14555b6faeea3dd58c1b1c3</td>
+      <td>4195</td>
+      <td>sao paulo</td>
+      <td>SP</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>51a04a8a6bdcb23deccc82b0b80742cf</td>
+      <td>12914</td>
+      <td>braganca paulista</td>
+      <td>SP</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+**Interpretation of the Output:**
+
+| Column Name             | Description                                                                 |
+|-------------------------|-----------------------------------------------------------------------------|
+| `seller_id`             | Unique identifier for each seller.                                          |
+| `seller_zip_code_prefix`| First 5 digits of the seller's ZIP code, used for regional grouping.        |
+| `seller_city`           | City where the seller is located.                                           |
+| `seller_state`          | Two-letter abbreviation of the seller's state (e.g., SP = São Paulo).       |
+
+---
+####  Geo Table
+
+**Output:**
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>geolocation_zip_code_prefix</th>
+      <th>geolocation_lat</th>
+      <th>geolocation_lng</th>
+      <th>geolocation_city</th>
+      <th>geolocation_state</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1037</td>
+      <td>-23.545621</td>
+      <td>-46.639292</td>
+      <td>sao paulo</td>
+      <td>SP</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1046</td>
+      <td>-23.546081</td>
+      <td>-46.644820</td>
+      <td>sao paulo</td>
+      <td>SP</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1046</td>
+      <td>-23.546129</td>
+      <td>-46.642951</td>
+      <td>sao paulo</td>
+      <td>SP</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1041</td>
+      <td>-23.544392</td>
+      <td>-46.639499</td>
+      <td>sao paulo</td>
+      <td>SP</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1035</td>
+      <td>-23.541578</td>
+      <td>-46.641607</td>
+      <td>sao paulo</td>
+      <td>SP</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+**Interpretation of the Output:**
+| Column Name                 | Description                                                                 |
+|-----------------------------|-----------------------------------------------------------------------------|
+| `geolocation_zip_code_prefix` | First 5 digits of the ZIP code, used to group geographic locations.       |
+| `geolocation_lat`           | Latitude coordinate of the location.                                       |
+| `geolocation_lng`           | Longitude coordinate of the location.                                      |
+| `geolocation_city`          | City of the geographic location.                                           |
+| `geolocation_state`         | Two-letter state abbreviation of the geographic location (e.g., SP, RJ).  |
+
+---
+
+####  Categories Table
+
+**Output:**
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>product_category_name</th>
+      <th>product_category_name_english</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>beleza_saude</td>
+      <td>health_beauty</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>informatica_acessorios</td>
+      <td>computers_accessories</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>automotivo</td>
+      <td>auto</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>cama_mesa_banho</td>
+      <td>bed_bath_table</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>moveis_decoracao</td>
+      <td>furniture_decor</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+**Interpretation of the Output:**
+| product_category_name             | product_category_name_english     |
+|----------------------------------|-----------------------------------|
+| beleza_saude                     | health_beauty                     |
+| informatica_acessorios           | computers_accessories             |
+| automotivo                       | auto                              |
+| cama_mesa_banho                  | bed_bath_table                    |
+| moveis_decoracao                 | furniture_decor                   |
+| ...                              | ...                               |
 
 ---
 
