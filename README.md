@@ -1396,9 +1396,11 @@ These segments provided insights into customer behavior, supporting better decis
 
 ---
 
+<img width="1033" height="373" alt="Image" src="https://github.com/user-attachments/assets/4bed4a85-49ca-4252-8c1e-afb654afb7fb" />
 
+<img width="905" height="455" alt="Image" src="https://github.com/user-attachments/assets/e3401cb2-692b-4df3-82a0-64594fb3e99a" />
 
-
+<img width="991" height="358" alt="image" src="https://github.com/user-attachments/assets/ddaa91e6-5106-4d84-a9ec-f134c73f685e" />
 
 
 
