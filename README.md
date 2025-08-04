@@ -897,39 +897,58 @@ The DataFrame was then saved as a Parquet file (`loaded_data.parquet`) using `df
 
  # Exploratory Data Analysis
  - We started by loading the data and inspecting it
- -<img width="1138" height="579" alt="image" src="https://github.com/user-attachments/assets/26b06c9e-a535-4f20-b27c-16e70464441f" />
+   
+ <img width="1138" height="579" alt="image" src="https://github.com/user-attachments/assets/26b06c9e-a535-4f20-b27c-16e70464441f" />
+ 
  - We then went forward to cleaning the data to check the data types, detect missing values, and identify any potential data quality issues, but we had already done this in the ETL process
- - <img width="665" height="827" alt="image" src="https://github.com/user-attachments/assets/1b00b53f-1368-459f-940b-cd1ff33b09ac" />
+  
+<img width="665" height="827" alt="image" src="https://github.com/user-attachments/assets/1b00b53f-1368-459f-940b-cd1ff33b09ac" />
+
  - We then went forward to interpret the summary, where we were able to find that
- - <img width="1071" height="671" alt="image" src="https://github.com/user-attachments/assets/4d3b473f-0d5e-4f6f-83b5-f1ee1743c67e" />
+
+<img width="1071" height="671" alt="image" src="https://github.com/user-attachments/assets/4d3b473f-0d5e-4f6f-83b5-f1ee1743c67e" />
  
  ### Descriptive statistics for the numerical features to understand the central tendency, spread, and distribution of numerical variables
- - <img width="1132" height="720" alt="image" src="https://github.com/user-attachments/assets/53c14345-ae41-4bcc-afa3-42614d6b0550" />
+ 
+<img width="1132" height="720" alt="image" src="https://github.com/user-attachments/assets/53c14345-ae41-4bcc-afa3-42614d6b0550" />
+
  - Through this, we can see the output and insights drawn, such as the  range of values of the different columns
  - We then went forward to visualize the data to help us understand the data better through histograms and boxplots
  - We focused on the key numerical features which are the `price`, `freight_value`, `payment_value`, `review_score`, and ` profit_margin`
- - <img width="967" height="549" alt="image" src="https://github.com/user-attachments/assets/0ebd90aa-3d8a-4cc6-9e53-b241c5a6bd99" />
+   
+<img width="967" height="549" alt="image" src="https://github.com/user-attachments/assets/0ebd90aa-3d8a-4cc6-9e53-b241c5a6bd99" />
+
  - Through this, we have created histograms and boxplots of each numerical variable to show us the distribution of the data
- - <img width="1102" height="808" alt="image" src="https://github.com/user-attachments/assets/c5ff2d7a-308f-4f2f-92e6-1f48d0e61256" />
- - <img width="1107" height="686" alt="image" src="https://github.com/user-attachments/assets/5b147275-66e8-4dee-b3f7-85f65fb881e0" />
+   
+<img width="1102" height="808" alt="image" src="https://github.com/user-attachments/assets/c5ff2d7a-308f-4f2f-92e6-1f48d0e61256" />
+<img width="1107" height="686" alt="image" src="https://github.com/user-attachments/assets/5b147275-66e8-4dee-b3f7-85f65fb881e0" />
+
 - Through these visualizations, we were able to draw insights such as :
-- <img width="1167" height="867" alt="image" src="https://github.com/user-attachments/assets/5f17af2c-6c0d-46af-b6e6-ae11a12600be" />
-- The overall insights are that
--  1. Pricing, payments, and shipping costs show diversity and clear outliers
+ 
+<img width="1167" height="867" alt="image" src="https://github.com/user-attachments/assets/5f17af2c-6c0d-46af-b6e6-ae11a12600be" />
+
+- The overall insights are that:
+   1. Pricing, payments, and shipping costs show diversity and clear outliers
    2. Customer satisfaction is high
    3. Profit margins are consistently strong
 
 ### Analysis of categorical variables 
-- this include `order_status`, `payment_type`, `customer_state`, `seller_state` and `product_category_name_english`
+- This include `order_status`, `payment_type`, `customer_state`, `seller_state` and `product_category_name_english`
 - These categorical variables help us understand distribution patterns, dominant categories, and potential relationships
-- <img width="827" height="435" alt="image" src="https://github.com/user-attachments/assets/d1ef33a3-8699-4ac8-8136-0b59f35aa416" />
+
+<img width="827" height="435" alt="image" src="https://github.com/user-attachments/assets/d1ef33a3-8699-4ac8-8136-0b59f35aa416" />
+
 - We decided to create count plots for each categorical variable
-- <img width="1072" height="897" alt="image" src="https://github.com/user-attachments/assets/3396af30-342f-4732-9bc5-14279cae5b16" />
-- <img width="674" height="489" alt="image" src="https://github.com/user-attachments/assets/f7441b12-1c65-4f6e-97ac-478704fe70e5" />
-- Through this, we were able to draw some insights which include
-- <img width="1161" height="446" alt="image" src="https://github.com/user-attachments/assets/873bbc00-c204-4381-b778-5471e8a3badc" />
-- overall insights are that :
-- 1. Order Status: Most orders delivered, few canceled.
+  
+<img width="1072" height="897" alt="image" src="https://github.com/user-attachments/assets/3396af30-342f-4732-9bc5-14279cae5b16" />
+<img width="674" height="489" alt="image" src="https://github.com/user-attachments/assets/f7441b12-1c65-4f6e-97ac-478704fe70e5" />
+
+- Through this, we were able to draw some insights which include:
+  
+<img width="1161" height="446" alt="image" src="https://github.com/user-attachments/assets/873bbc00-c204-4381-b778-5471e8a3badc" />
+
+Overall insights are that :
+  1. Order Status: Most orders delivered, few canceled.
   2. Payment Type: Credit card dominates.
   3. Customer/Seller State: São Paulo (SP) is the main hub.
   4. Product Category: Health & Beauty is top-selling.
@@ -942,69 +961,76 @@ The DataFrame was then saved as a Parquet file (`loaded_data.parquet`) using `df
   ii. Comparison of categorical variables with numerical variables
   iii. Detection of patterns or trends
 - We began with a correlation heatmap to visualize relationships between numerical features
-- <img width="770" height="324" alt="image" src="https://github.com/user-attachments/assets/37a7fd67-4324-4ab3-96c4-1c145c5e3d99" />
-- <img width="1071" height="886" alt="image" src="https://github.com/user-attachments/assets/fb041818-6bed-4297-90a5-a7b0756efb23" />
+<img width="770" height="324" alt="image" src="https://github.com/user-attachments/assets/37a7fd67-4324-4ab3-96c4-1c145c5e3d99" />
+<img width="1071" height="886" alt="image" src="https://github.com/user-attachments/assets/fb041818-6bed-4297-90a5-a7b0756efb23" />
+
 - We were able to draw some insights from this, which are
-- <img width="1175" height="711" alt="image" src="https://github.com/user-attachments/assets/245e8d6d-3f21-471b-b0cb-407265acf98a" />
-- overall insights are :
-- 1. Some features are highly correlated (may need to drop/reduce for modeling).
+ 
+<img width="1175" height="711" alt="image" src="https://github.com/user-attachments/assets/245e8d6d-3f21-471b-b0cb-407265acf98a" />
+
+Overall insights are :
+  1. Some features are highly correlated (may need to drop/reduce for modeling).
   2. Price and freight are linked.
 
 ### Categorical vs Numerical variables
 -This helps identify **how categories influence numerical metrics** such as price, freight value, payment value, and review scores.
-- <img width="942" height="799" alt="image" src="https://github.com/user-attachments/assets/528b3422-8090-49ee-ac07-730a14cb2eaf" />
+
+<img width="942" height="799" alt="image" src="https://github.com/user-attachments/assets/528b3422-8090-49ee-ac07-730a14cb2eaf" />
 - We created boxplots for price/freight value by category and state
 - This was the output of the boxplots
-- <img width="1007" height="601" alt="image" src="https://github.com/user-attachments/assets/7448ddba-e323-4076-9855-4785c762dea8" />
+ 
+<img width="1007" height="601" alt="image" src="https://github.com/user-attachments/assets/7448ddba-e323-4076-9855-4785c762dea8" />
 
 The boxplot for **Price vs Product Category** provides insights into how prices vary across the top 15 product categories.
 
-- **Key Observations:**
-  - Categories like **watches_gifts** and **industry_commerce_and_business** exhibit **higher median prices**, suggesting they are premium or specialized products.
-  - **Computers** and **home_appliances_2** also show relatively high prices, along with several outliers indicating a few extremely expensive items.
-  - **Cool_stuff** and **office_furniture** have **lower median prices**, highlighting these categories as more affordable.
-  - The **presence of many outliers** across categories implies significant price diversity within the same category.
+**Key Observations:**
+- Categories like **watches_gifts** and **industry_commerce_and_business** exhibit **higher median prices**, suggesting they are premium or specialized products.
+- **Computers** and **home_appliances_2** also show relatively high prices, along with several outliers indicating a few extremely expensive items.
+- **Cool_stuff** and **office_furniture** have **lower median prices**, highlighting these categories as more affordable.
+- The **presence of many outliers** across categories implies significant price diversity within the same category.
 
-- <img width="999" height="616" alt="image" src="https://github.com/user-attachments/assets/87b8dc07-bad5-45fe-8aa1-43dcb8c01087" />
+<img width="999" height="616" alt="image" src="https://github.com/user-attachments/assets/87b8dc07-bad5-45fe-8aa1-43dcb8c01087" />
 
 The boxplot for **Freight Value vs Product Category** reveals shipping cost variations among product categories.
 
-- **Key Observations:**
-  - Categories like **kitchen_dining_laundry_garden_furniture**, **garden_tools**, and **furniture_living_room** have **higher median freight costs**, possibly due to larger or heavier items.
-  - **Fashion_male_clothing** and **books_imported** tend to have **lower freight costs**, reflecting smaller and lighter products.
-  - Outliers with **very high freight values** suggest occasional special shipping requirements or long-distance deliveries.
+**Key Observations:**
+- Categories like **kitchen_dining_laundry_garden_furniture**, **garden_tools**, and **furniture_living_room** have **higher median freight costs**, possibly due to larger or heavier items.
+- **Fashion_male_clothing** and **books_imported** tend to have **lower freight costs**, reflecting smaller and lighter products.
+- Outliers with **very high freight values** suggest occasional special shipping requirements or long-distance deliveries.
     
-- <img width="1034" height="624" alt="image" src="https://github.com/user-attachments/assets/ef6fa699-32c6-4b04-90c2-4964bcd08018" />
+<img width="1034" height="624" alt="image" src="https://github.com/user-attachments/assets/ef6fa699-32c6-4b04-90c2-4964bcd08018" />
+
 The boxplot for **Freight Value vs Customer States** helps to understand regional differences in shipping costs.
 
-- **Key Observations:**
-  - States like **ce**, **m**, **to**, and **pa** have **higher median freight values**, suggesting that deliveries to these areas are costlier—likely due to distance or logistics.
-  - Most states cluster around **freight values between 20 and 30**, indicating stable shipping costs for the majority of customers.
-  - Several **outliers** reflect shipments with abnormally high costs.
+**Key Observations:**
+- States like **ce**, **m**, **to**, and **pa** have **higher median freight values**, suggesting that deliveries to these areas are costlier—likely due to distance or logistics.
+- Most states cluster around **freight values between 20 and 30**, indicating stable shipping costs for the majority of customers.
+- Several **outliers** reflect shipments with abnormally high costs.
 
-- <img width="1007" height="637" alt="image" src="https://github.com/user-attachments/assets/4c4846f1-462c-432e-91bb-ba4cc2b641f4" />
+<img width="1007" height="637" alt="image" src="https://github.com/user-attachments/assets/4c4846f1-462c-432e-91bb-ba4cc2b641f4" />
+
 The boxplot for **Freight Value vs Seller States** examines shipping costs from different seller regions.
 
-- **Key Observations:**
-  - Sellers in **pe**, **es**, and **ce** incur **higher median freight values**, which may indicate these locations are farther from major customer bases or involve higher handling costs.
-  - Most seller states have freight costs within a narrow range (20–35), showing general uniformity in shipping rates.
-  - Some states like **se** and **pi** display **outliers** with extremely high freight costs, possibly for large shipments or distant deliveries.
+**Key Observations:**
+- Sellers in **pe**, **es**, and **ce** incur **higher median freight values**, which may indicate these locations are farther from major customer bases or involve higher handling costs.
+- Most seller states have freight costs within a narrow range (20–35), showing general uniformity in shipping rates.
+- Some states like **se** and **pi** display **outliers** with extremely high freight costs, possibly for large shipments or distant deliveries.
  
   The boxplot for **Freight Value vs Seller States** examines shipping costs from different seller regions.
 
-- **Key Observations:**
-  - Sellers in **pe**, **es**, and **ce** incur **higher median freight values**, which may indicate these locations are farther from major customer bases or involve higher handling costs.
-  - Most seller states have freight costs within a narrow range (20–35), showing general uniformity in shipping rates.
-  - Some states like **se** and **pi** display **outliers** with extremely high freight costs, possibly for large shipments or distant deliveries.
+**Key Observations:**
+- Sellers in **pe**, **es**, and **ce** incur **higher median freight values**, which may indicate these locations are farther from major customer bases or involve higher handling costs.
+- Most seller states have freight costs within a narrow range (20–35), showing general uniformity in shipping rates.
+- Some states like **se** and **pi** display **outliers** with extremely high freight costs, possibly for large shipments or distant deliveries.
 
 ### Multivariate analysis
 - This helps us understand the interactions between multiple variables to help in decision-making making
 - We first decided to create a scatter plot of price vs Freight value by product category
 - This plot examines how product prices relate to freight value and whether this relationship varies across top product categories.
-- 
-- <img width="969" height="893" alt="image" src="https://github.com/user-attachments/assets/47de78d3-40ec-4ae0-abed-a7381f26cd6f" />
 
-- ##  Price vs. Freight Value by Top 5 Product Categories  
+<img width="969" height="893" alt="image" src="https://github.com/user-attachments/assets/47de78d3-40ec-4ae0-abed-a7381f26cd6f" />
+
+##  Price vs. Freight Value by Top 5 Product Categories  
 **Visualization Used:** Scatter Plot colored by product categories.
 
 ### Purpose:
@@ -1029,9 +1055,12 @@ The boxplot for **Freight Value vs Seller States** examines shipping costs from 
 
 ---
 - We then created a pairplot of key numerical variables
-- <img width="984" height="749" alt="image" src="https://github.com/user-attachments/assets/af3b0b71-5627-4e3c-8842-36b74661a3c1" />
-- <img width="983" height="286" alt="image" src="https://github.com/user-attachments/assets/63680834-da67-4a79-864c-defe4e9da65d" />
-- 
+<img width="984" height="749" alt="image" src="https://github.com/user-attachments/assets/af3b0b71-5627-4e3c-8842-36b74661a3c1" />
+
+<img width="983" height="286" alt="image" src="https://github.com/user-attachments/assets/63680834-da67-4a79-864c-defe4e9da65d" />
+
+---- 
+
 ## Pairwise Relationships between Key Numerical Features  
 **Visualization Used:** Pairplot (Scatterplot Matrix) of `price`, `freight_value`, `payment_value`, and `profit_margin`.
 
