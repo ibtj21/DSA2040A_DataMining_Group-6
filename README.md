@@ -1,20 +1,22 @@
 # DSA2040A_DataMining_Group-6
-End-to-end data mining project analyzing inpatient healthcare costs in the USA. Includes ETL, exploratory analysis, mining techniques, and insights to uncover cost patterns and drivers in hospitalization data.
+## Overview
+This project is an end-to-end data analytics and mining pipeline applied to **Olist E-commerce dataset**.
+The workflow spans from data extraction and transformation (ETL) to exploratory analysis, interactive dashboards, and data mining to uncover meaningful patterns and insights.
 # READ-ME file 
 # Student Responsible: Levin913 
 We started the project with the ETL process. We picked the e-commerce dataset in Olist and performed the ETL process on it
 
-# 🛒 Olist E-commerce Dataset: ETL Project
+#  Olist E-commerce Dataset: ETL Project
 
 **Author**: Hana  
 **Notebook**: `1_extract_transform.ipynb`  
 **Objective**: Perform Extract and Transform operations on Brazil’s largest e-commerce platform dataset (Olist), focusing on the last 3 months of sales.
 
-## 📦 Dataset Overview
+##  Dataset Overview
 
 The Olist dataset consists of **relational CSV files** representing various aspects of Brazil’s online marketplace.
 
-### 📁 Key Files Used
+###  Key Files Used
 
 | File Name | Description |
 |----------|-------------|
