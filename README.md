@@ -62,10 +62,14 @@ The Olist dataset contains multiple **relational CSV files**, where each file ca
 
 <img width="1090" height="289" alt="Image" src="https://github.com/user-attachments/assets/efb5e29d-9ce7-4e55-a0ad-958d2116ee69" />
 ---
+
 ###  *A. Initial Data Inspection*
 The first step in the ETL process was to **inspect the raw data** to understand its structure, completeness, and potential issues.
+
 ---
+
 ####  Orders Table
+
 **Output:**  
 
 <table border="1" class="dataframe">
@@ -141,11 +145,19 @@ The first step in the ETL process was to **inspect the raw data** to understand 
   </tbody>
 </table>
 </div>
-- <img width="792" height="888" alt="image" src="https://github.com/user-attachments/assets/247f66ef-f446-4e84-88d6-43e125687921" />
-- its structure was then inspected in the same way as creating a dictionary, first looping through it as the structure is inspected and printed
-- <img width="633" height="887" alt="image" src="https://github.com/user-attachments/assets/925b735d-81ea-453f-b909-b576df4ea25e" />
-- Through the output of the initial inspection, we were able to draw that
-- ___
+
+| Column Name                   | Description                                                                 |
+|-------------------------------|-----------------------------------------------------------------------------|
+| order_id                      | Unique identifier for each order.                                           |
+| customer_id                   | Links each order to a customer from the customers table.                   |
+| order_status                  | Current status of the order (e.g., delivered, shipped, canceled).          |
+| order_purchase_timestamp      | When the order was placed by the customer.                                 |
+| order_approved_at             | When the payment was approved.                                             |
+| order_delivered_carrier_date  | When the seller handed the package to the carrier.                         |
+| order_delivered_customer_date | When the customer received the order.                                      |
+| order_estimated_delivery_date | Estimated delivery date given at the time of purchase.                     |
+
+---
 ### *B. Initial Inspection Observations*
 
 From the initial `.info()` checks across the Olist datasets, we observe the following:
