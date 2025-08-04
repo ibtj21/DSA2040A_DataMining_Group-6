@@ -60,8 +60,100 @@ The Olist dataset contains multiple **relational CSV files**, where each file ca
 ## Extraction 
 -Data was extracted from the nine datasets
 
-<img width="770" height="345" alt="image" src="https://github.com/user-attachments/assets/cb6c404f-5e17-4554-8e7c-4b5e9a54de96" />
-- It was then inspected for the first time, displaying the first few rows of each dataset. It first created a dictionary named datasets and then looped through each dataset
+<img width="1090" height="289" alt="Image" src="https://github.com/user-attachments/assets/efb5e29d-9ce7-4e55-a0ad-958d2116ee69" />
+---
+###  *A. Initial Data Inspection*
+The first step in the ETL process was to **inspect the raw data** to understand its structure, completeness, and potential issues.
+---
+####  Orders Table
+**Output:**  
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>order_id</th>
+      <th>customer_id</th>
+      <th>order_status</th>
+      <th>order_purchase_timestamp</th>
+      <th>order_approved_at</th>
+      <th>order_delivered_carrier_date</th>
+      <th>order_delivered_customer_date</th>
+      <th>order_estimated_delivery_date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>e481f51cbdc54678b7cc49136f2d6af7</td>
+      <td>9ef432eb6251297304e76186b10a928d</td>
+      <td>delivered</td>
+      <td>2017-10-02 10:56:33</td>
+      <td>2017-10-02 11:07:15</td>
+      <td>2017-10-04 19:55:00</td>
+      <td>2017-10-10 21:25:13</td>
+      <td>2017-10-18 00:00:00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>53cdb2fc8bc7dce0b6741e2150273451</td>
+      <td>b0830fb4747a6c6d20dea0b8c802d7ef</td>
+      <td>delivered</td>
+      <td>2018-07-24 20:41:37</td>
+      <td>2018-07-26 03:24:27</td>
+      <td>2018-07-26 14:31:00</td>
+      <td>2018-08-07 15:27:45</td>
+      <td>2018-08-13 00:00:00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>47770eb9100c2d0c44946d9cf07ec65d</td>
+      <td>41ce2a54c0b03bf3443c3d931a367089</td>
+      <td>delivered</td>
+      <td>2018-08-08 08:38:49</td>
+      <td>2018-08-08 08:55:23</td>
+      <td>2018-08-08 13:50:00</td>
+      <td>2018-08-17 18:06:29</td>
+      <td>2018-09-04 00:00:00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>949d5b44dbf5de918fe9c16f97b45f8a</td>
+      <td>f88197465ea7920adcdbec7375364d82</td>
+      <td>delivered</td>
+      <td>2017-11-18 19:28:06</td>
+      <td>2017-11-18 19:45:59</td>
+      <td>2017-11-22 13:39:59</td>
+      <td>2017-12-02 00:28:42</td>
+      <td>2017-12-15 00:00:00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ad21c59c0840e6cb83a9ceb5573f8159</td>
+      <td>8ab97904e6daea8866dbdbc4fb7aad2c</td>
+      <td>delivered</td>
+      <td>2018-02-13 21:18:39</td>
+      <td>2018-02-13 22:20:29</td>
+      <td>2018-02-14 19:46:34</td>
+      <td>2018-02-16 18:17:02</td>
+      <td>2018-02-26 00:00:00</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 - <img width="792" height="888" alt="image" src="https://github.com/user-attachments/assets/247f66ef-f446-4e84-88d6-43e125687921" />
 - its structure was then inspected in the same way as creating a dictionary, first looping through it as the structure is inspected and printed
 - <img width="633" height="887" alt="image" src="https://github.com/user-attachments/assets/925b735d-81ea-453f-b909-b576df4ea25e" />
