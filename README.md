@@ -1237,6 +1237,163 @@ These segments provided insights into customer behavior, supporting better decis
 
 <img width="1086" height="446" alt="Image" src="https://github.com/user-attachments/assets/5cc47d21-744d-49d6-ad6c-20b7bb0d0277" />
 
+<img width="946" height="316" alt="Image" src="https://github.com/user-attachments/assets/a4df0648-5d87-4b0a-88b2-9963a06ef398" /
+
+**Output**
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>order_id</th>
+      <th>customer_id</th>
+      <th>order_status</th>
+      <th>order_purchase_timestamp</th>
+      <th>order_approved_at</th>
+      <th>order_delivered_carrier_date</th>
+      <th>order_delivered_customer_date</th>
+      <th>order_estimated_delivery_date</th>
+      <th>order_item_id</th>
+      <th>product_id</th>
+      <th>...</th>
+      <th>product_width_cm</th>
+      <th>seller_zip_code_prefix</th>
+      <th>seller_city</th>
+      <th>seller_state</th>
+      <th>product_category_name_english</th>
+      <th>customer_lat</th>
+      <th>customer_lng</th>
+      <th>seller_lat</th>
+      <th>seller_lng</th>
+      <th>purchase_frequency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>53cdb2fc8bc7dce0b6741e2150273451</td>
+      <td>b0830fb4747a6c6d20dea0b8c802d7ef</td>
+      <td>delivered</td>
+      <td>2018-07-24 20:41:37</td>
+      <td>2018-07-26 03:24:27</td>
+      <td>2018-07-26 14:31:00</td>
+      <td>2018-08-07 15:27:45</td>
+      <td>2018-08-13</td>
+      <td>1.0</td>
+      <td>595fac2a385ac33a80bd5114aec74eb8</td>
+      <td>...</td>
+      <td>19.0</td>
+      <td>31570.0</td>
+      <td>belo horizonte</td>
+      <td>sp</td>
+      <td>perfumery</td>
+      <td>-16.515006</td>
+      <td>-44.660711</td>
+      <td>-19.902360</td>
+      <td>-43.980427</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>47770eb9100c2d0c44946d9cf07ec65d</td>
+      <td>41ce2a54c0b03bf3443c3d931a367089</td>
+      <td>delivered</td>
+      <td>2018-08-08 08:38:49</td>
+      <td>2018-08-08 08:55:23</td>
+      <td>2018-08-08 13:50:00</td>
+      <td>2018-08-17 18:06:29</td>
+      <td>2018-09-04</td>
+      <td>1.0</td>
+      <td>aa4383b373c6aca5d8797843e5594415</td>
+      <td>...</td>
+      <td>21.0</td>
+      <td>14840.0</td>
+      <td>guariba</td>
+      <td>sp</td>
+      <td>auto</td>
+      <td>-16.745150</td>
+      <td>-48.514783</td>
+      <td>-21.363502</td>
+      <td>-48.229601</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5ff96c15d0b717ac6ad1f3d77225a350</td>
+      <td>19402a48fe860416adf93348aba37740</td>
+      <td>delivered</td>
+      <td>2018-07-25 17:44:10</td>
+      <td>2018-07-25 17:55:14</td>
+      <td>2018-07-26 13:16:00</td>
+      <td>2018-07-30 15:52:25</td>
+      <td>2018-08-08</td>
+      <td>1.0</td>
+      <td>10adb53d8faa890ca7c2f0cbcb68d777</td>
+      <td>...</td>
+      <td>16.0</td>
+      <td>14940.0</td>
+      <td>ibitinga</td>
+      <td>sp</td>
+      <td>bed_bath_table</td>
+      <td>-23.713190</td>
+      <td>-46.687407</td>
+      <td>-21.757321</td>
+      <td>-48.829744</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>f3e7c359154d965827355f39d6b1fdac</td>
+      <td>62b423aab58096ca514ba6aa06be2f98</td>
+      <td>delivered</td>
+      <td>2018-08-09 11:44:40</td>
+      <td>2018-08-10 03:24:51</td>
+      <td>2018-08-10 12:29:00</td>
+      <td>2018-08-13 18:24:27</td>
+      <td>2018-08-17</td>
+      <td>1.0</td>
+      <td>e99d69efe684efaa643f99805f7c81bc</td>
+      <td>...</td>
+      <td>25.0</td>
+      <td>14910.0</td>
+      <td>tabatinga</td>
+      <td>sp</td>
+      <td>stationery</td>
+      <td>-23.531732</td>
+      <td>-47.499804</td>
+      <td>-21.737063</td>
+      <td>-48.687601</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>b276e4f8c0fb86bd82fce576f21713e0</td>
+      <td>cf8ffeddf027932e51e4eae73b384059</td>
+      <td>delivered</td>
+      <td>2018-07-29 23:34:51</td>
+      <td>2018-07-29 23:45:15</td>
+      <td>2018-07-30 14:43:00</td>
+      <td>2018-07-31 22:48:50</td>
+      <td>2018-08-06</td>
+      <td>1.0</td>
+      <td>c6c1f263e076bd9c1f1640250a5d0c29</td>
+      <td>...</td>
+      <td>16.0</td>
+      <td>13030.0</td>
+      <td>campinas</td>
+      <td>sp</td>
+      <td>perfumery</td>
+      <td>-22.740602</td>
+      <td>-47.375821</td>
+      <td>-22.924970</td>
+      <td>-47.074284</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 43 columns</p>
+</div>
+
 ---
 
 
