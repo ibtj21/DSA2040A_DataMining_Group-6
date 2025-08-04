@@ -109,37 +109,37 @@ We created a new directory called `data/final/` if it didn't already exist using
 The DataFrame was then saved as a Parquet file (`loaded_data.parquet`) using `df.to_parquet()`. This format is preferred for analytics workflows due to its:
 
 - Smaller file size (compared to CSV)  
-- Faster read/write times  
+- Faster read/write times
 - Schema support and optimized columnar storage
 
 
  # Exploratory Data Analysis
- - we started by loading the data and inspecting it
+ - We started by loading the data and inspecting it
  -<img width="1138" height="579" alt="image" src="https://github.com/user-attachments/assets/26b06c9e-a535-4f20-b27c-16e70464441f" />
- - we then went forward to cleaning the data to check the data types, detect missing values and identifying any potential data quality issues but we had already done this in the etl process
+ - We then went forward to cleaning the data to check the data types, detect missing values and identifying any potential data quality issues but we had already done this in the etl process
  - <img width="665" height="827" alt="image" src="https://github.com/user-attachments/assets/1b00b53f-1368-459f-940b-cd1ff33b09ac" />
- - we then went forward to interpret the summary where we were able to find that
+ - We then went forward to interpret the summary where we were able to find that
  - <img width="1071" height="671" alt="image" src="https://github.com/user-attachments/assets/4d3b473f-0d5e-4f6f-83b5-f1ee1743c67e" />
  
- ### descriptive statistics for the numerical features so as to understand the central tendency, spread and distribution of numerical variables
+ ### Descriptive statistics for the numerical features so as to understand the central tendency, spread and distribution of numerical variables
  - <img width="1132" height="720" alt="image" src="https://github.com/user-attachments/assets/53c14345-ae41-4bcc-afa3-42614d6b0550" />
  - Through this we can see the output and insights drawn such as range of values of the different columns
  - We then went forward to visualize the data to help us understand better the data through histograms and boxplots
  - We focused on the key numerical features which are the `price`, `freight_value`, `payment_value`, `review_score` and ` profit_margin`
  - <img width="967" height="549" alt="image" src="https://github.com/user-attachments/assets/0ebd90aa-3d8a-4cc6-9e53-b241c5a6bd99" />
- - Through this we have created histograms and boxplots of each numerical variable to show us the distribution of the data
+ - Through this, we have created histograms and boxplots of each numerical variable to show us the distribution of the data
  - <img width="1102" height="808" alt="image" src="https://github.com/user-attachments/assets/c5ff2d7a-308f-4f2f-92e6-1f48d0e61256" />
  - <img width="1107" height="686" alt="image" src="https://github.com/user-attachments/assets/5b147275-66e8-4dee-b3f7-85f65fb881e0" />
-- Through this visualizations we were able to draw insights such as :
+- Through this visualizations, we were able to draw insights such as :
 - <img width="1167" height="867" alt="image" src="https://github.com/user-attachments/assets/5f17af2c-6c0d-46af-b6e6-ae11a12600be" />
-- the overall insights are that
--  1. pricing, payments and shipping costs show diversity and clear outliers
+- The overall insights are that
+-  1. Pricing, payments and shipping costs show diversity and clear outliers
    2. Customer satisfaction is high
-   3. profit margins are consistently strong
+   3. Profit margins are consistently strong
 
 ### Analysis of categorical variables 
 - this include `order_status`, `payment_type`, `customer_state`, `seller_state` and `product_category_name_english`
-- This categorical variables help us understand distribution patterns, dominant categories and potential relationships
+- These categorical variables help us understand distribution patterns, dominant categories and potential relationships
 - <img width="827" height="435" alt="image" src="https://github.com/user-attachments/assets/d1ef33a3-8699-4ac8-8136-0b59f35aa416" />
 - we decided to create count plots for each categorical variable
 - <img width="1072" height="897" alt="image" src="https://github.com/user-attachments/assets/3396af30-342f-4732-9bc5-14279cae5b16" />
