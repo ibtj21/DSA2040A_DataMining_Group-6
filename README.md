@@ -860,12 +860,9 @@ We also filled in the missing categorical values with the mode
 
 <img width="852" height="295" alt="image" src="https://github.com/user-attachments/assets/399e8861-3e8d-4869-b3cf-b48617a28cc9" />
 
-- We were also able to add more columns to enable us to derive more insights from the data
-- We added a profit margin column that shows how much of the product price is left after subtracting the freight costs
- 
-<img width="952" height="620" alt="image" src="https://github.com/user-attachments/assets/6f41a7cf-7c93-4a1d-a2a2-28468f0ce055" />
+We were also able to add more columns to enable us to derive more insights from the data
 
-- We also added the purchase frequency per customer, which shows how often a customer makes a purchase
+- We  added the purchase frequency per customer, which shows how often a customer makes a purchase
 
 <img width="1161" height="353" alt="image" src="https://github.com/user-attachments/assets/a5ea9be9-9500-4e08-827d-593bd6c80d8f" />
 
