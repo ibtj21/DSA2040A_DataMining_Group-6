@@ -32,6 +32,7 @@ The Olist dataset consists of **relational CSV files** representing various aspe
 
 ## Extraction 
 -Data was extracted from the nine datasets
+
 <img width="770" height="345" alt="image" src="https://github.com/user-attachments/assets/cb6c404f-5e17-4554-8e7c-4b5e9a54de96" />
 - It was then inspected for the first time diplaying the first few rows of each dataset. it first created a dictionary named datasets and then looped through each dataset
 - <img width="792" height="888" alt="image" src="https://github.com/user-attachments/assets/247f66ef-f446-4e84-88d6-43e125687921" />
