@@ -881,10 +881,14 @@ We also filled in the missing categorical values with the mode
 
 - This prevents errors in merging, filtering, and grouping
 
-  ## Loading
-  - We then were able to load the cleaned dataset into its own Parquet file and then preview it to know if it was a success
-  <img width="1166" height="782" alt="image" src="https://github.com/user-attachments/assets/d08d3774-377f-4aef-8118-d3f560440e9a" />
-- #### Saving as Parquet:
+## Loading
+  
+We then were able to load the cleaned dataset into its own Parquet file and then preview it to know if it was a success
+  
+<img width="1166" height="782" alt="image" src="https://github.com/user-attachments/assets/d08d3774-377f-4aef-8118-d3f560440e9a" />
+
+#### Saving as Parquet:
+
 We created a new directory called `data/final/` if it didn't already exist using `os.makedirs()` with `exist_ok=True`.
 
 The DataFrame was then saved as a Parquet file (`loaded_data.parquet`) using `df.to_parquet()`. This format is preferred for analytics workflows due to its:
