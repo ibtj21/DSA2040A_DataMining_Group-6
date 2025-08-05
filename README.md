@@ -1220,10 +1220,7 @@ For this dataset, feature engineering can:
 
 ---
 
-
-"This part of the document was prepared by : Angela."
-
-# Section by Hana Gashaw & Selmah Tzindori  Data Mining & Modeling Process
+#Section by Hana Gashaw & Selmah Tzindori  Data Mining & Modeling Process
 
 After preparing and cleaning the dataset through the ETL pipeline, we proceeded to the **data mining and modeling phase**.  
 This stage aimed to uncover **hidden patterns**, **group similar entities**, and **predict outcomes** using machine learning techniques.  
