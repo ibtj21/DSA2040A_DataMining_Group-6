@@ -29,16 +29,16 @@ The workflow spans from **data extraction and transformation (ETL)** to **explor
 ## Requirements
 -Make sure you have the following installed:
 1. Python 3.7+
-2. Visual studio code
+2. Visual Studio Code
 3. Python extension for VS Code
 4. Jupyter extension for VS Code 
 
 ## Step by step instructions
  1. Clone the repository
- 2. Open the folder in VS code
+ 2. Open the folder in VS Code
  3. Set up a virtual environment (optional)
- 4. Install dependencies (required packages eg. numpy, matplotlib, pandas )
- 5. Open a notebook ( eg. 2_data_mining.ipynb)
+ 4. Install dependencies (required packages eg, numpy, matplotlib, pandas )
+ 5. Open a notebook ( eg, 2_data_mining.ipynb)
  6. Run the cells
 
 ---
@@ -357,7 +357,7 @@ The Olist dataset contains multiple **relational CSV files**, where each file ca
 | Column Name                    | Description                                                                 |
 |-------------------------------|-----------------------------------------------------------------------------|
 | `product_id`                  | Unique identifier for each product.                                        |
-| `product_category_name`       | Category name of the product (e.g., `perfumaria`, `moveis_decoracao`).    |
+| `product_category_name`       | Category name of the product (e.g., `perfumaria`, `móveis_decoração`).    |
 | `product_name_lenght`         | Number of characters in the product's name.                                |
 | `product_description_lenght`  | Number of characters in the product's description.                         |
 | `product_photos_qty`          | Number of photos provided for the product.                                 |
@@ -434,7 +434,7 @@ The Olist dataset contains multiple **relational CSV files**, where each file ca
 | `payment_sequential`   | tells us how many payment types were used for a single order. |
 | `payment_type`         | Type of payment used (e.g., `credit_card`, `boleto`, `voucher`, `debit_card`). |
 | `payment_installments` | tells us how many times a payment is split, like "3 monthly payments. |
-| `payment_value`        | Amount paid by the customer (in BRL – Brazilian Real).(price + freight_value)|
+| `payment_value`        | Amount paid by the customer (in BRL – Brazilian Real). (price + freight_value)|
 
 ---
 
