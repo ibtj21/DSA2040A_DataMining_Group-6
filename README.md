@@ -24,43 +24,34 @@ The workflow spans from **data extraction and transformation (ETL)** to **explor
 
 ---
 
-🔧 How to Run the Notebooks
-Requirements
-Make sure you have the following installed:
+## How to Run the Notebooks
 
-Python 3.7+
+#### Requirements
+-Make sure you have the following installed:
 
-Jupyter Notebook or JupyterLab
+1.Python 3.7+
+2.Jupyter Notebook or JupyterLab
+3.pip or conda for package management
 
-pip or conda for package management
+#### Recommended Libraries
+-You can install the required packages using:
 
-Recommended Libraries
-You can install the required packages using:
-
-bash
-Copy
-Edit
+- bash
 pip install -r requirements.txt
-Or manually install key packages:
 
-bash
-Copy
-Edit
+- Or manually install key packages:
 pip install pandas numpy matplotlib seaborn scikit-learn plotly
-Running the Notebooks
-Clone the repository
 
-bash
-Copy
-Edit
+#### Running the Notebooks
+-Clone the repository
+
 git clone https://github.com/ibtj21/DSA2040A_DataMining_Group-6.git
 cd DSA2040A_DataMining_Group-6
-Launch Jupyter Notebook
 
-bash
-Copy
-Edit
+-Launch Jupyter Notebook
+
 jupyter notebook
+
 Open the notebooks in your browser (e.g., ETL.ipynb, EDA.ipynb, or DataMining.ipynb) and run the cells step-by-step.
 
 ---
