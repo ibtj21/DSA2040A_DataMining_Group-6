@@ -36,6 +36,7 @@ It consists of **relational CSV files** capturing transactions, customer behavio
 
 ---
 
+
 ### Key Files Used
 
 | File Name                            | Description |
@@ -1517,3 +1518,150 @@ print(cluster_summary)
   - **Cluster 2:** (Analysis based on the `cluster_summary` table)
 
 This analysis helps us identify segments such as **high-value customers**, **frequent buyers**, or **bulk purchasers**, providing actionable insights for business strategy.
+
+## Decision Trees for Classification: Theory & Working Principle
+
+### What is a Decision Tree?
+
+A Decision Tree is a **supervised machine learning algorithm** used for both **classification** and **regression** tasks. It works by creating a model that predicts the value of a target variable by learning simple decision rules inferred from the data features. The structure is tree-like, with each **internal node** representing a test on a feature, each **branch** representing the outcome of the test, and each **leaf node** representing a class label or a value.
+
+-----
+
+### **How It Works (Step-by-Step)**
+
+1.  **Start with a Root Node**: The algorithm begins with a single node representing the entire dataset.
+2.  **Find the Best Split**: The algorithm searches for the best feature to split the data into subsets. The "best" split is determined by a metric like **Gini Impurity** or **Entropy**.
+3.  **Split the Data**: The root node is split into two or more sub-nodes based on the chosen feature.
+4.  **Repeat Recursively**: The process is repeated for each sub-node until a stopping condition is met (e.g., maximum depth is reached, or a node contains too few data points). The final nodes are the **leaf nodes**, which contain the predicted class label.
+
+-----
+
+### **Mathematics Behind It**
+
+The primary goal is to find splits that create the most **homogeneous** child nodes.
+
+  - **Gini Impurity**: Measures the probability of a randomly chosen element being incorrectly classified. A Gini score of 0 means perfect purity.
+    \[ \\text{Gini} = 1 - \\sum\_{i=1}^{C} (p\_i)^2 \]
+    Where \\( p_i \\) is the probability of an item being classified into class \\( i \\).
+  - **Entropy**: Measures the randomness or uncertainty in a dataset.
+    \[ \\text{Entropy} = - \\sum\_{i=1}^{C} p\_i \\log\_2(p\_i) \]
+    The algorithm aims to minimize Entropy, or maximize **Information Gain**.
+
+-----
+
+### Why Use Decision Trees?
+
+  - **Easy to Understand**: The logic is simple to follow and visualize.
+  - **Requires Little Data Preparation**: No need for feature scaling or normalization.
+  - **Handles Both Numerical & Categorical Data**: Can be used with different types of data.
+  - **Useful for Feature Selection**: Helps in identifying the most important features.
+
+-----
+
+### **Limitations**
+
+  - **Overfitting**: Prone to creating overly complex trees that don't generalize well to new data.
+  - **Bias**: Small changes in data can lead to a very different tree structure.
+  - **Complexity**: Can be computationally expensive to train on large datasets with many features.
+
+-----
+
+### **Application to Our Project**
+
+We will use a Decision Tree to predict `review_score` based on other features like `payment_value` and `freight_value`. This will help us understand what factors influence a customer's review, which is crucial for improving customer satisfaction and service.
+
+-----
+
+## Step 1. Loading the Required Libraries
+
+**Why?**
+We need to import libraries for:
+
+  - **Data manipulation** (pandas)
+  - **Modeling** (DecisionTreeClassifier from scikit-learn)
+  - **Model evaluation** (accuracy\_score)
+  - **Data splitting** (train\_test\_split)
+
+<!-- end list -->
+
+```python
+# Import required libraries
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+```
+
+## Step 2. Loading the Transformed Dataset
+
+**Why?**
+Similar to K-Means, we use the cleaned and transformed dataset to ensure our model is trained on quality data.
+
+```python
+# Load the transformed dataset
+df = pd.read_csv('../data/transformed/transformed_data.csv')
+```
+
+## Step 3. Preparing the Data for the Model
+
+### Why this step?
+
+For a supervised learning model, we must define our **features (X)** and our **target variable (y)**. We will use `review_score` as our target (`y`), and `payment_value` and `freight_value` as our features (`X`).
+
+```python
+# Define features (X) and target (y)
+X = df[['payment_value', 'freight_value']]
+y = df['review_score']
+
+# Display the features and target
+print("Features (X):")
+print(X.head())
+print("\nTarget (y):")
+print(y.head())
+```
+
+## Step 4. Splitting the Data
+
+### Why split the data?
+
+To evaluate how well our model performs on unseen data, we split the dataset into a **training set** and a **testing set**. This prevents the model from simply memorizing the training data and helps assess its ability to generalize. We use an 80/20 split, with 80% for training and 20% for testing.
+
+```python
+# Split data into training and testing sets (80% train, 20% test)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Print the shapes of the split data
+print(f"Shape of X_train: {X_train.shape}")
+print(f"Shape of X_test: {X_test.shape}")
+print(f"Shape of y_train: {y_train.shape}")
+print(f"Shape of y_test: {y_test.shape}")
+```
+
+## Step 5. Building and Training the Model
+
+### Why this step?
+
+We now instantiate the `DecisionTreeClassifier` and train it on our training data. The `fit` method is what performs the learning process, building the decision tree based on the provided features and target.
+
+```python
+# Initialize the Decision Tree classifier
+dtree = DecisionTreeClassifier(random_state=42)
+
+# Train the model
+dtree.fit(X_train, y_train)
+```
+
+## Step 6. Making Predictions and Evaluating the Model
+
+### Why this step?
+
+After training the model, we use the `predict` method to make predictions on the unseen testing data. We then evaluate the model's performance by comparing its predictions (`y_pred`) to the actual test values (`y_test`) using a metric like `accuracy_score`.
+
+```python
+# Make predictions on the test set
+y_pred = dtree.predict(X_test)
+
+# Evaluate the model's accuracy
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Model Accuracy: {accuracy:.2f}")
+```
