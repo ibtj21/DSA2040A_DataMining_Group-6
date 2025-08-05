@@ -1829,7 +1829,7 @@ print(f"Random Forest Model Accuracy: {accuracy_rf:.2f}")
 <img width="1024" height="534" alt="Screenshot 2025-08-05 110407" src="https://github.com/user-attachments/assets/c33ade65-df0e-4c1e-a4f6-20ae6baa56d8" />
 
 ### Dashboards
-Dashboard section done by: Hana Gashaw 
+Dashboard section done by: Hana Gashaw & Selmah 
 ## Power BI Dashboard: Interactive Reports
 
 ### What is the purpose of this dashboard?
