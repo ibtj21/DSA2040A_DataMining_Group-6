@@ -1417,13 +1417,4 @@ After scaling, we verified that the transformed data had a mean of 0 and standar
 
 <img width="1045" height="458" alt="image" src="https://github.com/user-attachments/assets/9eef940a-550d-4de4-94f6-7873c0644539" />
 
-
-
-
-
-
-
-
-
-
 ---
