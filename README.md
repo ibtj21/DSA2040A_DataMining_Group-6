@@ -1671,6 +1671,33 @@ print(f"Model Accuracy: {accuracy:.2f}")
 ```
 <img width="1024" height="467" alt="Screenshot 2025-08-05 110325" src="https://github.com/user-attachments/assets/3e6d829f-f7cf-4799-9245-2f05e299d1ff" />
 
+### Step 7. Evaluating Model Performance with a Confusion Matrix
+
+**Why this step?**
+A confusion matrix is a powerful tool to evaluate a classification model. It provides a detailed breakdown of correct and incorrect predictions for each class, offering more insight than a simple accuracy score.
+
+```python
+# Import the required libraries
+from sklearn.metrics import confusion_matrix
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Assuming 'y_test' and 'y_pred' are from your Decision Tree model's prediction step
+cm = confusion_matrix(y_test, y_pred)
+
+# Visualize the confusion matrix using a heatmap
+plt.figure(figsize=(10, 7))
+sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
+            xticklabels=dtree.classes_, yticklabels=dtree.classes_)
+plt.xlabel('Predicted')
+plt.ylabel('Actual')
+plt.title('Decision Tree Confusion Matrix')
+plt.show()
+```
+
+<img width="1025" height="437" alt="Screenshot 2025-08-05 110349" src="https://github.com/user-attachments/assets/94f2b17d-6a52-402c-8b88-f7948f6c05b1" />
+
+
 
 ## Random Forest Classifier: Theory & Working Principle
 
@@ -1800,3 +1827,4 @@ accuracy_rf = accuracy_score(y_test, y_pred_rf)
 print(f"Random Forest Model Accuracy: {accuracy_rf:.2f}")
 ```
 <img width="1024" height="534" alt="Screenshot 2025-08-05 110407" src="https://github.com/user-attachments/assets/c33ade65-df0e-4c1e-a4f6-20ae6baa56d8" />
+
