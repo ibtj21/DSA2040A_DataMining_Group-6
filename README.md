@@ -1,26 +1,60 @@
 #  DSA2040A_DataMining_Group-6
 
+## DSA 2040A Group Project Proposal  
+**Topic:** E-commerce – Olist Dataset 
+
+### Project Title  
+**Customer Behavior Mining & Delivery Optimization Using Olist E-commerce Data**
+
+---
 ##  Overview
 This project is an **end-to-end data analytics and mining pipeline** applied to the **Olist E-commerce dataset**.  
 The workflow spans from **data extraction and transformation (ETL)** to **exploratory analysis**, **interactive dashboards**, and **data mining** to uncover meaningful patterns and insights.
 
 ---
+## Research Questions  
 
-##  Team & Responsibilities  
-- **ETL Phase Lead:** Hana
-- **EDA Phase leads:** Trizah074 & Ted340
-- **Data Mining leads:** Selmah602 & Hana
-- **Dashboard lead:** Hana & Selmah602
-- **Documentation:** Levin913 & Angela289
+1. What are the key customer segments based on purchase behavior?
+2. How can delivery delays be predicted and reduced?
+3. What payment and product patterns dominate the platform?
+4. Which features best explain customer review scores?
+
+---
+
+## Team & Roles  
+
+| Team Member       | Role Summary                                         |
+|-------------------|------------------------------------------------------|
+| Hana Gashhaw      | Led ETL, Co-developed dashboards,Asisted in data mining|
+| Tizzah Nzioka     | Co-led EDA, Feature engineering                      |
+| Ted Koiri         | Co-led EDA, Feature engineering                        |
+| Selimah Tzindori  | Dashboard design, led Data Mining                 |
+| Levvin Ekxam      | Documentation, Visual storytelling,report|
+| Angela Fungu      | Documentation, Final edits and report|
  
 
 ---
 
-## Project Workflow
-1. **ETL Process** – Data extraction, cleaning, and transformation.  
-2. **Exploratory Data Analysis (EDA)** – Identifying trends and relationships.  
-3. **Dashboards** – Building interactive dashboards for visualization.  
-4. **Data Mining** – Discovering hidden patterns using analytical techniques.  
+## Timeline (5 Weeks)
+
+| Week | Milestone Description                                      |
+|------|------------------------------------------------------------|
+| 1    | Project kickoff, topic selection, role assignment, proposal |
+| 2    | ETL pipeline completion, dataset merging, initial EDA      |
+| 3    | Feature engineering, visualizations, clustering            |
+| 4    | Predictive modeling (classification/regression)            |
+| 5    | Final dashboard, presentation deck, and documentation      |
+---
+
+---
+
+## Expected Deliverables  
+
+- Cleaned and well-documented dataset  
+- Jupyter notebooks with step-by-step analysis  
+- Visual dashboard (static visualizations)  
+- Executive summary (PDF)  
+- Final presentation slides (PowerPoint)
 
 ---
 
@@ -47,6 +81,7 @@ GitHub – For version control and project hosting
  6. Run the cells
 
 ---
+# Project : **Customer Behavior Mining & Delivery Optimization Using Olist E-commerce Data**
 
 ## Olist E-commerce Dataset
 
@@ -1852,8 +1887,8 @@ print(f"Random Forest Model Accuracy: {accuracy_rf:.2f}")
 ```
 <img width="1024" height="534" alt="Screenshot 2025-08-05 110407" src="https://github.com/user-attachments/assets/c33ade65-df0e-4c1e-a4f6-20ae6baa56d8" />
 
-### Dashboards
-Dashboard section done by: Hana Gashaw & Selmah 
+# Dashboards
+# Dashboard section done by: Hana Gashaw & Selmah 
 ## Power BI Dashboard: Interactive Reports
 
 ### What is the purpose of this dashboard?
