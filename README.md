@@ -27,11 +27,16 @@ The workflow spans from **data extraction and transformation (ETL)** to **explor
 ## How to Run the Notebooks
 
 ## Requirements
--Make sure you have the following installed:
-1. Python 3.7+
-2. Visual Studio Code
-3. Python extension for VS Code
-4. Jupyter extension for VS Code 
+### Tools & Environment
+Programming Language  - Python 3.8 or higher
+
+Jupyter Notebook – For running analysis and modeling notebooks
+
+Visual Studio Code (VS Code) – For development and version control
+
+Power BI – For building and presenting interactive dashboards
+
+GitHub – For version control and project hosting
 
 ## Step by step instructions
  1. Clone the repository
