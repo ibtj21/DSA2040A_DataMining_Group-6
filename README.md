@@ -1669,6 +1669,9 @@ y_pred = dtree.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Model Accuracy: {accuracy:.2f}")
 ```
+<img width="1024" height="467" alt="Screenshot 2025-08-05 110325" src="https://github.com/user-attachments/assets/3e6d829f-f7cf-4799-9245-2f05e299d1ff" />
+
+
 ## Random Forest Classifier: Theory & Working Principle
 
 ### What is a Random Forest?
@@ -1796,3 +1799,4 @@ y_pred_rf = rf.predict(X_test)
 accuracy_rf = accuracy_score(y_test, y_pred_rf)
 print(f"Random Forest Model Accuracy: {accuracy_rf:.2f}")
 ```
+<img width="1024" height="534" alt="Screenshot 2025-08-05 110407" src="https://github.com/user-attachments/assets/c33ade65-df0e-4c1e-a4f6-20ae6baa56d8" />
