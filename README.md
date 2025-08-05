@@ -24,6 +24,47 @@ The workflow spans from **data extraction and transformation (ETL)** to **explor
 
 ---
 
+🔧 How to Run the Notebooks
+Requirements
+Make sure you have the following installed:
+
+Python 3.7+
+
+Jupyter Notebook or JupyterLab
+
+pip or conda for package management
+
+Recommended Libraries
+You can install the required packages using:
+
+bash
+Copy
+Edit
+pip install -r requirements.txt
+Or manually install key packages:
+
+bash
+Copy
+Edit
+pip install pandas numpy matplotlib seaborn scikit-learn plotly
+Running the Notebooks
+Clone the repository
+
+bash
+Copy
+Edit
+git clone https://github.com/ibtj21/DSA2040A_DataMining_Group-6.git
+cd DSA2040A_DataMining_Group-6
+Launch Jupyter Notebook
+
+bash
+Copy
+Edit
+jupyter notebook
+Open the notebooks in your browser (e.g., ETL.ipynb, EDA.ipynb, or DataMining.ipynb) and run the cells step-by-step.
+
+---
+
 ## Olist E-commerce Dataset
 
 The Olist dataset represents real-world data from **Brazil’s largest e-commerce platform**.  
