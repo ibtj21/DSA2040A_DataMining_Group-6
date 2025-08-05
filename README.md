@@ -28,31 +28,18 @@ The workflow spans from **data extraction and transformation (ETL)** to **explor
 
 #### Requirements
 -Make sure you have the following installed:
+1. Python 3.7+
+2. Visual studio code
+3. Python extension for VS Code
+4. Jupyter extension for VS Code 
 
-1.Python 3.7+
-2.Jupyter Notebook or JupyterLab
-3.pip or conda for package management
-
-#### Recommended Libraries
--You can install the required packages using:
-
-- bash
-pip install -r requirements.txt
-
-- Or manually install key packages:
-pip install pandas numpy matplotlib seaborn scikit-learn plotly
-
-#### Running the Notebooks
--Clone the repository
-
-git clone https://github.com/ibtj21/DSA2040A_DataMining_Group-6.git
-cd DSA2040A_DataMining_Group-6
-
--Launch Jupyter Notebook
-
-jupyter notebook
-
-Open the notebooks in your browser (e.g., ETL.ipynb, EDA.ipynb, or DataMining.ipynb) and run the cells step-by-step.
+### Step by step instructions
+Step 1: Clone the repository 
+Step 2: Open the folder in VS code
+Step 3: Set up a virtual environment (optional)
+Step 4: Install dependencies (required packages eg. numpy, matplotlib, pandas )
+Step 5: Open a notebook ( eg. 2_data_mining.ipynb) 
+Step 6: Run the cells
 
 ---
 
