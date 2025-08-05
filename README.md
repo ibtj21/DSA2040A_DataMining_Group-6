@@ -895,7 +895,7 @@ The DataFrame was then saved as a Parquet file (`loaded_data.parquet`) using `df
 - Schema support and optimized columnar storage
 
 
- # Exploratory Data Analysis
+ # Section by Ted Korir & Trizzah Nzioka: Exploratory Data Analysis
  - We started by loading the data and inspecting it
    
  <img width="1138" height="579" alt="image" src="https://github.com/user-attachments/assets/26b06c9e-a535-4f20-b27c-16e70464441f" />
@@ -1195,7 +1195,7 @@ For this dataset, feature engineering can:
 
 ---
 
-##  Data Mining & Modeling Process
+# Section by Hana Gashaw & Selmah Tzindori  Data Mining & Modeling Process
 
 After preparing and cleaning the dataset through the ETL pipeline, we proceeded to the **data mining and modeling phase**.  
 This stage aimed to uncover **hidden patterns**, **group similar entities**, and **predict outcomes** using machine learning techniques.  
