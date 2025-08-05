@@ -1665,3 +1665,130 @@ y_pred = dtree.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Model Accuracy: {accuracy:.2f}")
 ```
+## Random Forest Classifier: Theory & Working Principle
+
+### What is a Random Forest?
+
+A Random Forest is an **ensemble learning method** for classification and regression that operates by constructing a multitude of **decision trees** at training time. The "forest" is the collection of these trees. To make a prediction, it aggregates the predictions from all the individual trees. For classification, this is typically done through a **majority vote**, while for regression, it's done by averaging the outputs. This approach helps to overcome the problem of **overfitting** that individual decision trees are prone to.
+
+-----
+
+### **How It Works (Step-by-Step)**
+
+1.  **Select Random Subsets of Data**: The algorithm uses a technique called **Bootstrap Aggregation (Bagging)** to create multiple subsets of the training data by sampling with replacement. Each subset is used to train a different tree.
+2.  **Select Random Subsets of Features**: At each split in each tree, the algorithm only considers a random subset of features, not all features. This adds more randomness and helps to reduce the correlation between trees.
+3.  **Build a Decision Tree**: A decision tree is built on each of the data and feature subsets. The trees are grown to their maximum depth without pruning.
+4.  **Aggregate Predictions**: For a new data point, each tree in the forest makes a prediction. The final prediction is determined by a majority vote (for classification) or an average (for regression) of all tree predictions.
+
+-----
+
+### **Mathematics Behind It**
+
+Random Forest reduces variance and bias by averaging multiple independent trees.
+
+  - **Bagging**: Creates diversity in the training data, ensuring trees are not identical.
+  - **Random Feature Selection**: Prevents any single feature from dominating the entire model, further decorrelating the trees.
+
+The final prediction is based on the mode of the class predictions from all trees:
+\[ \\hat{y} = \\text{mode}{ C\_1(\\mathbf{x}), C\_2(\\mathbf{x}), \\dots, C\_B(\\mathbf{x}) } \]
+Where \\( C_b(\mathbf{x}) \\) is the prediction of the \\( b^{th} \\) tree.
+
+-----
+
+### Why Use Random Forest?
+
+  - **High Accuracy**: Generally produces very good results and is more accurate than a single decision tree.
+  - **Reduces Overfitting**: By averaging multiple trees, it reduces the risk of overfitting.
+  - **Less Sensitive to Outliers**: The bagging approach makes it more robust to outliers.
+  - **Feature Importance**: Provides a good measure of feature importance, indicating which features contributed most to the model's performance.
+
+-----
+
+### **Limitations**
+
+  - **Less Interpretable**: It's a "black box" model, making it harder to interpret than a single decision tree.
+  - **Computationally Intensive**: Can be slower to train than other models due to the large number of trees.
+  - **Requires More Memory**: Needs to store multiple trees, which can take up a lot of memory.
+
+-----
+
+### **Application to Our Project**
+
+We will use a Random Forest Classifier as an improved version of our Decision Tree model. It will also predict `review_score` but with higher accuracy and better generalization, providing a more reliable understanding of what factors influence customer satisfaction.
+
+-----
+
+## Step 1. Loading the Required Libraries
+
+**Why?**
+We need to import the `RandomForestClassifier` and other necessary libraries for data preparation and evaluation.
+
+```python
+# Import required libraries
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+```
+
+## Step 2. Loading the Transformed Dataset
+
+**Why?**
+We use the same cleaned dataset for a consistent comparison with the Decision Tree model.
+
+```python
+# Load the transformed dataset
+df = pd.read_csv('../data/transformed/transformed_data.csv')
+```
+
+## Step 3. Preparing the Data for the Model
+
+### Why this step?
+
+We use the same features (`payment_value`, `freight_value`) and target (`review_score`) to ensure a direct comparison between the two models.
+
+```python
+# Define features (X) and target (y)
+X = df[['payment_value', 'freight_value']]
+y = df['review_score']
+```
+
+## Step 4. Splitting the Data
+
+### Why split the data?
+
+We use the same 80/20 split to train and test the Random Forest model, ensuring a fair evaluation of its performance on unseen data.
+
+```python
+# Split data into training and testing sets (80% train, 20% test)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+```
+
+## Step 5. Building and Training the Model
+
+### Why this step?
+
+We instantiate the `RandomForestClassifier` with a specific number of trees (e.g., 100) and train it on our training data.
+
+```python
+# Initialize the Random Forest classifier
+rf = RandomForestClassifier(n_estimators=100, random_state=42)
+
+# Train the model
+rf.fit(X_train, y_train)
+```
+
+## Step 6. Making Predictions and Evaluating the Model
+
+### Why this step?
+
+We make predictions on the test set and calculate the accuracy score to measure the model's performance. The accuracy of the Random Forest model is expected to be higher than the single Decision Tree model.
+
+```python
+# Make predictions on the test set
+y_pred_rf = rf.predict(X_test)
+
+# Evaluate the model's accuracy
+accuracy_rf = accuracy_score(y_test, y_pred_rf)
+print(f"Random Forest Model Accuracy: {accuracy_rf:.2f}")
+```
