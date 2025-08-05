@@ -1235,7 +1235,11 @@ These segments provided insights into customer behavior, supporting better decis
 
 ---
 
+We started by importing the required libraries for data manipulation, scaling, clustering, and visualization as shown below:
+
 <img width="1086" height="446" alt="Image" src="https://github.com/user-attachments/assets/5cc47d21-744d-49d6-ad6c-20b7bb0d0277" />
+
+We then load the cleaned and transformed dataset from the ETL step. 
 
 <img width="946" height="316" alt="Image" src="https://github.com/user-attachments/assets/a4df0648-5d87-4b0a-88b2-9963a06ef398" />
 
