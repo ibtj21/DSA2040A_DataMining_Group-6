@@ -1418,3 +1418,102 @@ After scaling, we verified that the transformed data had a mean of 0 and standar
 <img width="1045" height="458" alt="image" src="https://github.com/user-attachments/assets/9eef940a-550d-4de4-94f6-7873c0644539" />
 
 ---
+
+## Step 5. Determining the Optimal Number of Clusters (K)
+
+### Why do we need to determine K?
+
+K-Means requires us to specify the number of clusters (`K`) in advance. Choosing the wrong `K` can lead to poor or misleading results. We use the **Elbow Method** to find the optimal `K`.
+
+### The Elbow Method
+
+The Elbow Method plots the **Within-Cluster Sum of Squares (WCSS)** against the number of clusters (`K`). The WCSS measures the compactness of the clusters; a smaller WCSS is better. As `K` increases, WCSS will always decrease, but at some point, the rate of decrease slows down, forming an "elbow" in the plot. This elbow point often represents the optimal number of clusters.
+
+```python
+# Calculate WCSS for different values of K
+wcss = []
+for i in range(1, 11):
+    kmeans = KMeans(n_clusters=i, init='k-means++', random_state=42)
+    kmeans.fit(X_scaled)
+    wcss.append(kmeans.inertia_)
+
+# Plot the Elbow Method graph
+plt.figure(figsize=(10, 6))
+plt.plot(range(1, 11), wcss, marker='o', linestyle='--')
+plt.title('Elbow Method to Determine Optimal K')
+plt.xlabel('Number of Clusters (K)')
+plt.ylabel('WCSS (Inertia)')
+plt.xticks(range(1, 11))
+plt.grid(True)
+plt.show()
+```
+
+## Step 6. Applying K-Means with the Optimal K
+
+### Why this step?
+
+Once we have determined the optimal `K` (in this case, 3 from the Elbow Method), we apply the K-Means algorithm to segment the data.
+
+```python
+# Apply K-Means with the optimal number of clusters (e.g., K=3)
+kmeans = KMeans(n_clusters=3, init='k-means++', random_state=42)
+df['cluster_label'] = kmeans.fit_predict(X_scaled)
+
+# Display the first few rows with the new cluster labels
+print(df.head())
+```
+
+## Step 7. Visualizing the Clusters
+
+### Why Visualize?
+
+Visualizing the clusters helps us understand the segmentation. We can use a 3D scatter plot to show how the data points are grouped in the feature space. This provides a clear, intuitive view of the clusters.
+
+```python
+# Example of 3D visualization of the clusters
+from mpl_toolkits.mplot3d import Axes3D
+
+fig = plt.figure(figsize=(12, 10))
+ax = fig.add_subplot(111, projection='3d')
+
+# Scatter plot for each cluster
+ax.scatter(df[df['cluster_label'] == 0]['payment_value'],
+           df[df['cluster_label'] == 0]['purchase_frequency'],
+           df[df['cluster_label'] == 0]['product_weight_g'],
+           c='red', label='Cluster 0')
+ax.scatter(df[df['cluster_label'] == 1]['payment_value'],
+           df[df['cluster_label'] == 1]['purchase_frequency'],
+           df[df['cluster_label'] == 1]['product_weight_g'],
+           c='blue', label='Cluster 1')
+ax.scatter(df[df['cluster_label'] == 2]['payment_value'],
+           df[df['cluster_label'] == 2]['purchase_frequency'],
+           df[df['cluster_label'] == 2]['product_weight_g'],
+           c='green', label='Cluster 2')
+
+ax.set_xlabel('Payment Value')
+ax.set_ylabel('Purchase Frequency')
+ax.set_zlabel('Product Weight')
+ax.set_title('K-Means Clustering Results')
+ax.legend()
+plt.show()
+```
+
+## Step 8. Interpreting the Clusters
+
+### Why interpret the clusters?
+
+Once the clusters are created, we need to understand what each cluster represents. We analyze the characteristics of each cluster by looking at the mean values of the features.
+
+```python
+# Analyze the cluster characteristics
+cluster_summary = df.groupby('cluster_label')[['payment_value', 'purchase_frequency', 'product_weight_g']].mean()
+print(cluster_summary)
+```
+
+**Interpretation:**
+
+  - **Cluster 0:** (Analysis based on the `cluster_summary` table)
+  - **Cluster 1:** (Analysis based on the `cluster_summary` table)
+  - **Cluster 2:** (Analysis based on the `cluster_summary` table)
+
+This analysis helps us identify segments such as **high-value customers**, **frequent buyers**, or **bulk purchasers**, providing actionable insights for business strategy.
