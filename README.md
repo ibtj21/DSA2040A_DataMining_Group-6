@@ -1400,7 +1400,13 @@ We then load the cleaned and transformed dataset from the ETL step.
 
 ---
 
+We then selected key numeric features that best describe customer behavior and product characteristics—`payment_value`, `purchase_frequency`, and `product_weight_g`.  
+These variables capture spending patterns, buying frequency, and product attributes, forming the basis for meaningful clustering.
+
 <img width="1033" height="373" alt="Image" src="https://github.com/user-attachments/assets/4bed4a85-49ca-4252-8c1e-afb654afb7fb" />
+
+Since K-Means is distance-based, we standardized the selected features using `StandardScaler` to ensure all variables contribute equally to clustering.  
+After scaling, we verified that the transformed data had a mean of 0 and standard deviation of 1.
 
 <img width="905" height="455" alt="Image" src="https://github.com/user-attachments/assets/e3401cb2-692b-4df3-82a0-64594fb3e99a" />
 
