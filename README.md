@@ -26,14 +26,14 @@ The workflow spans from **data extraction and transformation (ETL)** to **explor
 
 ## How to Run the Notebooks
 
-#### Requirements
+## Requirements
 -Make sure you have the following installed:
 1. Python 3.7+
 2. Visual studio code
 3. Python extension for VS Code
 4. Jupyter extension for VS Code 
 
-### Step by step instructions
+## Step by step instructions
 Step 1: Clone the repository 
 Step 2: Open the folder in VS code
 Step 3: Set up a virtual environment (optional)
