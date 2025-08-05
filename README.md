@@ -1405,12 +1405,15 @@ These variables capture spending patterns, buying frequency, and product attribu
 
 <img width="1033" height="373" alt="Image" src="https://github.com/user-attachments/assets/4bed4a85-49ca-4252-8c1e-afb654afb7fb" />
 
+<img width="905" height="455" alt="Image" src="https://github.com/user-attachments/assets/e3401cb2-692b-4df3-82a0-64594fb3e99a" />
+
+---
 Since K-Means is distance-based, we standardized the selected features using `StandardScaler` to ensure all variables contribute equally to clustering.  
 After scaling, we verified that the transformed data had a mean of 0 and standard deviation of 1.
 
-<img width="905" height="455" alt="Image" src="https://github.com/user-attachments/assets/e3401cb2-692b-4df3-82a0-64594fb3e99a" />
-
 <img width="991" height="358" alt="image" src="https://github.com/user-attachments/assets/ddaa91e6-5106-4d84-a9ec-f134c73f685e" />
+
+---
 
 <img width="1045" height="458" alt="image" src="https://github.com/user-attachments/assets/9eef940a-550d-4de4-94f6-7873c0644539" />
 
