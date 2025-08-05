@@ -1828,3 +1828,27 @@ print(f"Random Forest Model Accuracy: {accuracy_rf:.2f}")
 ```
 <img width="1024" height="534" alt="Screenshot 2025-08-05 110407" src="https://github.com/user-attachments/assets/c33ade65-df0e-4c1e-a4f6-20ae6baa56d8" />
 
+### Dashboards
+Dashboard section done by: Hana Gashaw 
+## Power BI Dashboard: Interactive Reports
+
+### What is the purpose of this dashboard?
+The Power BI dashboard serves as a central hub for interactive and comprehensive visualization of the key insights and findings from our **Exploratory Data Analysis (EDA)** and **Data Mining** processes. Designed to be accessible to both technical and non-technical stakeholders, this dashboard allows for a dynamic exploration of the data. It transforms raw data and complex model outputs into clear, actionable business intelligence, helping to inform strategic decisions across the business.
+
+---
+
+### **Dashboard Pages & Key Insights**
+
+#### Page 1: Sales and Revenue Overview
+This page provides a robust, high-level view of the company's financial performance. It's designed to give a quick yet detailed understanding of sales dynamics. It includes key performance indicators (KPIs) such as total revenue, total number of orders, and average order value, presented in a clean and easy-to-read format. Visualizations on this page include line charts that track sales and revenue trends over time, allowing users to quickly identify peak seasons, dips, and overall growth patterns. This is complemented by bar charts that break down sales by `product_category` and `customer_state`, providing geographical and product-based insights. Interactive filters allow for dynamic analysis by specific time periods, product categories, or customer locations, making it a valuable tool for understanding the company's financial health and market distribution.
+
+<img width="1591" height="902" alt="Screenshot 2025-08-05 113151" src="https://github.com/user-attachments/assets/37a6f2ea-e02a-4474-8f98-e724ee19002e" />
+
+
+#### Page 2: Customer Segmentation & Satisfaction
+This page is the core of our data mining findings, combining the results of our unsupervised and supervised learning models. It is dedicated to visualizing both the customer segments identified and the factors driving customer satisfaction. The page presents scatter plots or bar charts showing the distinct customer clusters identified by the **K-Means algorithm**. These clusters are often labeled with descriptive titles like "high-value customers," "frequent buyers," and "budget shoppers," giving a clear picture of the different types of customers and their characteristics based on metrics such as `payment_value` and `purchase_frequency`.
+
+Alongside this, the page features visualizations from the **Decision Tree** and **Random Forest** models. This includes a breakdown of `review_scores` (e.g., a pie chart showing the percentage of 5-star, 4-star, etc., reviews) to assess overall satisfaction. There are also charts that show the relationship between `review_score` and features like `freight_value` or `payment_value`. This helps to answer critical business questions like, "Do customers who pay more for freight give lower reviews?" This page provides a holistic view of who the customers are and what influences their satisfaction, directly linking our data mining efforts to actionable business insights.
+
+<img width="1669" height="863" alt="Screenshot 2025-08-05 113224" src="https://github.com/user-attachments/assets/e0ca18a4-b7a7-485c-aebf-f0b21c461db9" />
+
