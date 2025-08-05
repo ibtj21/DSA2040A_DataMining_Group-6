@@ -10,7 +10,7 @@ The workflow spans from **data extraction and transformation (ETL)** to **explor
 - **ETL Phase Lead:** Hana Gashaw
 - **EDA Phase leads:** Trizzah Nzioka & Ted Korir
 - **Data Mining leads:** Selmah Tzindori & Hana Gashaw
-- **Dashboard lead:** Hana Gashaw & Selmah Tzindori
+- **Dashboard lead:** Hana Gashaw 
 - **Documentation:** Levin Ekuam &Angela Irungu
  
 
@@ -35,6 +35,7 @@ It consists of **relational CSV files** capturing transactions, customer behavio
 - **Structure**: Multiple tables linked via keys like `order_id`, `product_id`, and `customer_id`.
 
 ---
+
 
 ### Key Files Used
 
@@ -1418,3 +1419,436 @@ After scaling, we verified that the transformed data had a mean of 0 and standar
 <img width="1045" height="458" alt="image" src="https://github.com/user-attachments/assets/9eef940a-550d-4de4-94f6-7873c0644539" />
 
 ---
+
+## Step 5. Determining the Optimal Number of Clusters (K)
+
+### Why do we need to determine K?
+
+K-Means requires us to specify the number of clusters (`K`) in advance. Choosing the wrong `K` can lead to poor or misleading results. We use the **Elbow Method** to find the optimal `K`.
+
+### The Elbow Method
+
+The Elbow Method plots the **Within-Cluster Sum of Squares (WCSS)** against the number of clusters (`K`). The WCSS measures the compactness of the clusters; a smaller WCSS is better. As `K` increases, WCSS will always decrease, but at some point, the rate of decrease slows down, forming an "elbow" in the plot. This elbow point often represents the optimal number of clusters.
+
+```python
+# Calculate WCSS for different values of K
+wcss = []
+for i in range(1, 11):
+    kmeans = KMeans(n_clusters=i, init='k-means++', random_state=42)
+    kmeans.fit(X_scaled)
+    wcss.append(kmeans.inertia_)
+
+# Plot the Elbow Method graph
+plt.figure(figsize=(10, 6))
+plt.plot(range(1, 11), wcss, marker='o', linestyle='--')
+plt.title('Elbow Method to Determine Optimal K')
+plt.xlabel('Number of Clusters (K)')
+plt.ylabel('WCSS (Inertia)')
+plt.xticks(range(1, 11))
+plt.grid(True)
+plt.show()
+```
+<img width="958" height="503" alt="Screenshot 2025-08-05 104803" src="https://github.com/user-attachments/assets/966ca51f-437b-4718-a539-5d3650a5ebf8" />
+
+## Step 6. Applying K-Means with the Optimal K
+
+### Why this step?
+
+Once we have determined the optimal `K` (in this case, 3 from the Elbow Method), we apply the K-Means algorithm to segment the data.
+
+```python
+# Apply K-Means with the optimal number of clusters (e.g., K=3)
+kmeans = KMeans(n_clusters=3, init='k-means++', random_state=42)
+df['cluster_label'] = kmeans.fit_predict(X_scaled)
+
+# Display the first few rows with the new cluster labels
+print(df.head())
+```
+
+## Step 7. Visualizing the Clusters
+
+### Why Visualize?
+
+Visualizing the clusters helps us understand the segmentation. We can use a 3D scatter plot to show how the data points are grouped in the feature space. This provides a clear, intuitive view of the clusters.
+
+```python
+# Example of 3D visualization of the clusters
+from mpl_toolkits.mplot3d import Axes3D
+
+fig = plt.figure(figsize=(12, 10))
+ax = fig.add_subplot(111, projection='3d')
+
+# Scatter plot for each cluster
+ax.scatter(df[df['cluster_label'] == 0]['payment_value'],
+           df[df['cluster_label'] == 0]['purchase_frequency'],
+           df[df['cluster_label'] == 0]['product_weight_g'],
+           c='red', label='Cluster 0')
+ax.scatter(df[df['cluster_label'] == 1]['payment_value'],
+           df[df['cluster_label'] == 1]['purchase_frequency'],
+           df[df['cluster_label'] == 1]['product_weight_g'],
+           c='blue', label='Cluster 1')
+ax.scatter(df[df['cluster_label'] == 2]['payment_value'],
+           df[df['cluster_label'] == 2]['purchase_frequency'],
+           df[df['cluster_label'] == 2]['product_weight_g'],
+           c='green', label='Cluster 2')
+
+ax.set_xlabel('Payment Value')
+ax.set_ylabel('Purchase Frequency')
+ax.set_zlabel('Product Weight')
+ax.set_title('K-Means Clustering Results')
+ax.legend()
+plt.show()
+```
+<img width="749" height="491" alt="Screenshot 2025-08-05 105132" src="https://github.com/user-attachments/assets/13147f01-1137-4925-aea2-ce90f33025b7" />
+
+## Step 8. Interpreting the Clusters
+
+### Why interpret the clusters?
+
+Once the clusters are created, we need to understand what each cluster represents. We analyze the characteristics of each cluster by looking at the mean values of the features.
+
+```python
+# Analyze the cluster characteristics
+cluster_summary = df.groupby('cluster_label')[['payment_value', 'purchase_frequency', 'product_weight_g']].mean()
+print(cluster_summary)
+```
+
+**Interpretation:**
+
+  - **Cluster 0:** (Analysis based on the `cluster_summary` table)
+  - **Cluster 1:** (Analysis based on the `cluster_summary` table)
+  - **Cluster 2:** (Analysis based on the `cluster_summary` table)
+
+This analysis helps us identify segments such as **high-value customers**, **frequent buyers**, or **bulk purchasers**, providing actionable insights for business strategy.
+
+<img width="976" height="405" alt="k5" src="https://github.com/user-attachments/assets/9b4e63b5-5bc1-4539-a44c-6191e34acd6b" />
+
+## Decision Trees for Classification: Theory & Working Principle
+
+### What is a Decision Tree?
+
+A Decision Tree is a **supervised machine learning algorithm** used for both **classification** and **regression** tasks. It works by creating a model that predicts the value of a target variable by learning simple decision rules inferred from the data features. The structure is tree-like, with each **internal node** representing a test on a feature, each **branch** representing the outcome of the test, and each **leaf node** representing a class label or a value.
+
+-----
+
+### **How It Works (Step-by-Step)**
+
+1.  **Start with a Root Node**: The algorithm begins with a single node representing the entire dataset.
+2.  **Find the Best Split**: The algorithm searches for the best feature to split the data into subsets. The "best" split is determined by a metric like **Gini Impurity** or **Entropy**.
+3.  **Split the Data**: The root node is split into two or more sub-nodes based on the chosen feature.
+4.  **Repeat Recursively**: The process is repeated for each sub-node until a stopping condition is met (e.g., maximum depth is reached, or a node contains too few data points). The final nodes are the **leaf nodes**, which contain the predicted class label.
+
+-----
+
+### **Mathematics Behind It**
+
+The primary goal is to find splits that create the most **homogeneous** child nodes.
+
+  - **Gini Impurity**: Measures the probability of a randomly chosen element being incorrectly classified. A Gini score of 0 means perfect purity.
+    \[ \\text{Gini} = 1 - \\sum\_{i=1}^{C} (p\_i)^2 \]
+    Where \\( p_i \\) is the probability of an item being classified into class \\( i \\).
+  - **Entropy**: Measures the randomness or uncertainty in a dataset.
+    \[ \\text{Entropy} = - \\sum\_{i=1}^{C} p\_i \\log\_2(p\_i) \]
+    The algorithm aims to minimize Entropy, or maximize **Information Gain**.
+
+-----
+
+### Why Use Decision Trees?
+
+  - **Easy to Understand**: The logic is simple to follow and visualize.
+  - **Requires Little Data Preparation**: No need for feature scaling or normalization.
+  - **Handles Both Numerical & Categorical Data**: Can be used with different types of data.
+  - **Useful for Feature Selection**: Helps in identifying the most important features.
+
+-----
+
+### **Limitations**
+
+  - **Overfitting**: Prone to creating overly complex trees that don't generalize well to new data.
+  - **Bias**: Small changes in data can lead to a very different tree structure.
+  - **Complexity**: Can be computationally expensive to train on large datasets with many features.
+
+-----
+
+### **Application to Our Project**
+
+We will use a Decision Tree to predict `review_score` based on other features like `payment_value` and `freight_value`. This will help us understand what factors influence a customer's review, which is crucial for improving customer satisfaction and service.
+
+-----
+
+## Step 1. Loading the Required Libraries
+
+**Why?**
+We need to import libraries for:
+
+  - **Data manipulation** (pandas)
+  - **Modeling** (DecisionTreeClassifier from scikit-learn)
+  - **Model evaluation** (accuracy\_score)
+  - **Data splitting** (train\_test\_split)
+
+<!-- end list -->
+
+```python
+# Import required libraries
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+```
+
+## Step 2. Loading the Transformed Dataset
+
+**Why?**
+Similar to K-Means, we use the cleaned and transformed dataset to ensure our model is trained on quality data.
+
+```python
+# Load the transformed dataset
+df = pd.read_csv('../data/transformed/transformed_data.csv')
+```
+
+## Step 3. Preparing the Data for the Model
+
+### Why this step?
+
+For a supervised learning model, we must define our **features (X)** and our **target variable (y)**. We will use `review_score` as our target (`y`), and `payment_value` and `freight_value` as our features (`X`).
+
+```python
+# Define features (X) and target (y)
+X = df[['payment_value', 'freight_value']]
+y = df['review_score']
+
+# Display the features and target
+print("Features (X):")
+print(X.head())
+print("\nTarget (y):")
+print(y.head())
+```
+
+## Step 4. Splitting the Data
+
+### Why split the data?
+
+To evaluate how well our model performs on unseen data, we split the dataset into a **training set** and a **testing set**. This prevents the model from simply memorizing the training data and helps assess its ability to generalize. We use an 80/20 split, with 80% for training and 20% for testing.
+
+```python
+# Split data into training and testing sets (80% train, 20% test)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Print the shapes of the split data
+print(f"Shape of X_train: {X_train.shape}")
+print(f"Shape of X_test: {X_test.shape}")
+print(f"Shape of y_train: {y_train.shape}")
+print(f"Shape of y_test: {y_test.shape}")
+```
+
+## Step 5. Building and Training the Model
+
+### Why this step?
+
+We now instantiate the `DecisionTreeClassifier` and train it on our training data. The `fit` method is what performs the learning process, building the decision tree based on the provided features and target.
+
+```python
+# Initialize the Decision Tree classifier
+dtree = DecisionTreeClassifier(random_state=42)
+
+# Train the model
+dtree.fit(X_train, y_train)
+```
+
+## Step 6. Making Predictions and Evaluating the Model
+
+### Why this step?
+
+After training the model, we use the `predict` method to make predictions on the unseen testing data. We then evaluate the model's performance by comparing its predictions (`y_pred`) to the actual test values (`y_test`) using a metric like `accuracy_score`.
+
+```python
+# Make predictions on the test set
+y_pred = dtree.predict(X_test)
+
+# Evaluate the model's accuracy
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Model Accuracy: {accuracy:.2f}")
+```
+<img width="1024" height="467" alt="Screenshot 2025-08-05 110325" src="https://github.com/user-attachments/assets/3e6d829f-f7cf-4799-9245-2f05e299d1ff" />
+
+### Step 7. Evaluating Model Performance with a Confusion Matrix
+
+**Why this step?**
+A confusion matrix is a powerful tool to evaluate a classification model. It provides a detailed breakdown of correct and incorrect predictions for each class, offering more insight than a simple accuracy score.
+
+```python
+# Import the required libraries
+from sklearn.metrics import confusion_matrix
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Assuming 'y_test' and 'y_pred' are from your Decision Tree model's prediction step
+cm = confusion_matrix(y_test, y_pred)
+
+# Visualize the confusion matrix using a heatmap
+plt.figure(figsize=(10, 7))
+sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
+            xticklabels=dtree.classes_, yticklabels=dtree.classes_)
+plt.xlabel('Predicted')
+plt.ylabel('Actual')
+plt.title('Decision Tree Confusion Matrix')
+plt.show()
+```
+
+<img width="1025" height="437" alt="Screenshot 2025-08-05 110349" src="https://github.com/user-attachments/assets/94f2b17d-6a52-402c-8b88-f7948f6c05b1" />
+
+
+
+## Random Forest Classifier: Theory & Working Principle
+
+### What is a Random Forest?
+
+A Random Forest is an **ensemble learning method** for classification and regression that operates by constructing a multitude of **decision trees** at training time. The "forest" is the collection of these trees. To make a prediction, it aggregates the predictions from all the individual trees. For classification, this is typically done through a **majority vote**, while for regression, it's done by averaging the outputs. This approach helps to overcome the problem of **overfitting** that individual decision trees are prone to.
+
+-----
+
+### **How It Works (Step-by-Step)**
+
+1.  **Select Random Subsets of Data**: The algorithm uses a technique called **Bootstrap Aggregation (Bagging)** to create multiple subsets of the training data by sampling with replacement. Each subset is used to train a different tree.
+2.  **Select Random Subsets of Features**: At each split in each tree, the algorithm only considers a random subset of features, not all features. This adds more randomness and helps to reduce the correlation between trees.
+3.  **Build a Decision Tree**: A decision tree is built on each of the data and feature subsets. The trees are grown to their maximum depth without pruning.
+4.  **Aggregate Predictions**: For a new data point, each tree in the forest makes a prediction. The final prediction is determined by a majority vote (for classification) or an average (for regression) of all tree predictions.
+
+-----
+
+### **Mathematics Behind It**
+
+Random Forest reduces variance and bias by averaging multiple independent trees.
+
+  - **Bagging**: Creates diversity in the training data, ensuring trees are not identical.
+  - **Random Feature Selection**: Prevents any single feature from dominating the entire model, further decorrelating the trees.
+
+The final prediction is based on the mode of the class predictions from all trees:
+\[ \\hat{y} = \\text{mode}{ C\_1(\\mathbf{x}), C\_2(\\mathbf{x}), \\dots, C\_B(\\mathbf{x}) } \]
+Where \\( C_b(\mathbf{x}) \\) is the prediction of the \\( b^{th} \\) tree.
+
+-----
+
+### Why Use Random Forest?
+
+  - **High Accuracy**: Generally produces very good results and is more accurate than a single decision tree.
+  - **Reduces Overfitting**: By averaging multiple trees, it reduces the risk of overfitting.
+  - **Less Sensitive to Outliers**: The bagging approach makes it more robust to outliers.
+  - **Feature Importance**: Provides a good measure of feature importance, indicating which features contributed most to the model's performance.
+
+-----
+
+### **Limitations**
+
+  - **Less Interpretable**: It's a "black box" model, making it harder to interpret than a single decision tree.
+  - **Computationally Intensive**: Can be slower to train than other models due to the large number of trees.
+  - **Requires More Memory**: Needs to store multiple trees, which can take up a lot of memory.
+
+-----
+
+### **Application to Our Project**
+
+We will use a Random Forest Classifier as an improved version of our Decision Tree model. It will also predict `review_score` but with higher accuracy and better generalization, providing a more reliable understanding of what factors influence customer satisfaction.
+
+-----
+
+## Step 1. Loading the Required Libraries
+
+**Why?**
+We need to import the `RandomForestClassifier` and other necessary libraries for data preparation and evaluation.
+
+```python
+# Import required libraries
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+```
+
+## Step 2. Loading the Transformed Dataset
+
+**Why?**
+We use the same cleaned dataset for a consistent comparison with the Decision Tree model.
+
+```python
+# Load the transformed dataset
+df = pd.read_csv('../data/transformed/transformed_data.csv')
+```
+
+## Step 3. Preparing the Data for the Model
+
+### Why this step?
+
+We use the same features (`payment_value`, `freight_value`) and target (`review_score`) to ensure a direct comparison between the two models.
+
+```python
+# Define features (X) and target (y)
+X = df[['payment_value', 'freight_value']]
+y = df['review_score']
+```
+
+## Step 4. Splitting the Data
+
+### Why split the data?
+
+We use the same 80/20 split to train and test the Random Forest model, ensuring a fair evaluation of its performance on unseen data.
+
+```python
+# Split data into training and testing sets (80% train, 20% test)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+```
+
+## Step 5. Building and Training the Model
+
+### Why this step?
+
+We instantiate the `RandomForestClassifier` with a specific number of trees (e.g., 100) and train it on our training data.
+
+```python
+# Initialize the Random Forest classifier
+rf = RandomForestClassifier(n_estimators=100, random_state=42)
+
+# Train the model
+rf.fit(X_train, y_train)
+```
+
+## Step 6. Making Predictions and Evaluating the Model
+
+### Why this step?
+
+We make predictions on the test set and calculate the accuracy score to measure the model's performance. The accuracy of the Random Forest model is expected to be higher than the single Decision Tree model.
+
+```python
+# Make predictions on the test set
+y_pred_rf = rf.predict(X_test)
+
+# Evaluate the model's accuracy
+accuracy_rf = accuracy_score(y_test, y_pred_rf)
+print(f"Random Forest Model Accuracy: {accuracy_rf:.2f}")
+```
+<img width="1024" height="534" alt="Screenshot 2025-08-05 110407" src="https://github.com/user-attachments/assets/c33ade65-df0e-4c1e-a4f6-20ae6baa56d8" />
+
+### Dashboards
+Dashboard section done by: Hana Gashaw & Selmah 
+## Power BI Dashboard: Interactive Reports
+
+### What is the purpose of this dashboard?
+The Power BI dashboard serves as a central hub for interactive and comprehensive visualization of the key insights and findings from our **Exploratory Data Analysis (EDA)** and **Data Mining** processes. Designed to be accessible to both technical and non-technical stakeholders, this dashboard allows for a dynamic exploration of the data. It transforms raw data and complex model outputs into clear, actionable business intelligence, helping to inform strategic decisions across the business.
+
+---
+
+### **Dashboard Pages & Key Insights**
+
+#### Page 1: Sales and Revenue Overview
+This page provides a robust, high-level view of the company's financial performance. It's designed to give a quick yet detailed understanding of sales dynamics. It includes key performance indicators (KPIs) such as total revenue, total number of orders, and average order value, presented in a clean and easy-to-read format. Visualizations on this page include line charts that track sales and revenue trends over time, allowing users to quickly identify peak seasons, dips, and overall growth patterns. This is complemented by bar charts that break down sales by `product_category` and `customer_state`, providing geographical and product-based insights. Interactive filters allow for dynamic analysis by specific time periods, product categories, or customer locations, making it a valuable tool for understanding the company's financial health and market distribution.
+
+<img width="1591" height="902" alt="Screenshot 2025-08-05 113151" src="https://github.com/user-attachments/assets/37a6f2ea-e02a-4474-8f98-e724ee19002e" />
+
+
+#### Page 2: Customer Segmentation & Satisfaction
+This page is the core of our data mining findings, combining the results of our unsupervised and supervised learning models. It is dedicated to visualizing both the customer segments identified and the factors driving customer satisfaction. The page presents scatter plots or bar charts showing the distinct customer clusters identified by the **K-Means algorithm**. These clusters are often labeled with descriptive titles like "high-value customers," "frequent buyers," and "budget shoppers," giving a clear picture of the different types of customers and their characteristics based on metrics such as `payment_value` and `purchase_frequency`.
+
+Alongside this, the page features visualizations from the **Decision Tree** and **Random Forest** models. This includes a breakdown of `review_scores` (e.g., a pie chart showing the percentage of 5-star, 4-star, etc., reviews) to assess overall satisfaction. There are also charts that show the relationship between `review_score` and features like `freight_value` or `payment_value`. This helps to answer critical business questions like, "Do customers who pay more for freight give lower reviews?" This page provides a holistic view of who the customers are and what influences their satisfaction, directly linking our data mining efforts to actionable business insights.
+
+<img width="1669" height="863" alt="Screenshot 2025-08-05 113224" src="https://github.com/user-attachments/assets/e0ca18a4-b7a7-485c-aebf-f0b21c461db9" />
+
