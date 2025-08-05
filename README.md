@@ -8,7 +8,7 @@ The workflow spans from **data extraction and transformation (ETL)** to **explor
 
 ##  Team & Responsibilities  
 - **ETL Phase Lead:** Hana
-- **EDA Phase leads:** Trizah074 & Ted
+- **EDA Phase leads:** Trizah074 & Ted340
 - **Data Mining leads:** Selmah602 & Hana
 - **Dashboard lead:** Hana & Selmah602
 - **Documentation:** Levin913 & Angela289
