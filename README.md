@@ -1448,6 +1448,7 @@ plt.xticks(range(1, 11))
 plt.grid(True)
 plt.show()
 ```
+<img width="958" height="503" alt="Screenshot 2025-08-05 104803" src="https://github.com/user-attachments/assets/966ca51f-437b-4718-a539-5d3650a5ebf8" />
 
 ## Step 6. Applying K-Means with the Optimal K
 
@@ -1498,6 +1499,7 @@ ax.set_title('K-Means Clustering Results')
 ax.legend()
 plt.show()
 ```
+<img width="749" height="491" alt="Screenshot 2025-08-05 105132" src="https://github.com/user-attachments/assets/13147f01-1137-4925-aea2-ce90f33025b7" />
 
 ## Step 8. Interpreting the Clusters
 
@@ -1518,6 +1520,8 @@ print(cluster_summary)
   - **Cluster 2:** (Analysis based on the `cluster_summary` table)
 
 This analysis helps us identify segments such as **high-value customers**, **frequent buyers**, or **bulk purchasers**, providing actionable insights for business strategy.
+
+<img width="976" height="405" alt="k5" src="https://github.com/user-attachments/assets/9b4e63b5-5bc1-4539-a44c-6191e34acd6b" />
 
 ## Decision Trees for Classification: Theory & Working Principle
 
