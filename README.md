@@ -23,14 +23,15 @@ The workflow spans from **data extraction and transformation (ETL)** to **explor
 
 ## Team & Roles  
 
-| Team Member       | Role Summary                                         |
-|-------------------|------------------------------------------------------|
-| Hana Gashhaw      | Led ETL, Co-developed dashboards,Asisted in data mining|
-| Tizzah Nzioka     | Co-led EDA, Feature engineering                      |
-| Ted Koiri         | Co-led EDA, Feature engineering                        |
-| Selimah Tzindori  | Dashboard design, led Data Mining                 |
-| Levvin Ekxam      | Documentation, Visual storytelling,report|
-| Angela Fungu      | Documentation, Final edits and report|
+| Team_6 Members & Last 3 Digits of ID | Role Summary                                                  |
+|--------------------------------------|---------------------------------------------------------------|
+| Hana : 555                           | Led ETL, Co-developed dashboards, Assisted in data mining     |
+| Tizzah : 074                         | Co-led EDA, Feature engineering                               |
+| Ted : 340                            | Co-led EDA, Feature engineering                               |
+| Selimah : 602                        | Dashboard design, Led data mining                             |
+| Levin : 913                          | Documentation, Visual storytelling, Report,Readme             |
+| Angela : 289                         | Documentation, Final edits and Report,Readme                  |
+
  
 
 ---
