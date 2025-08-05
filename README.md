@@ -34,12 +34,12 @@ The workflow spans from **data extraction and transformation (ETL)** to **explor
 4. Jupyter extension for VS Code 
 
 ## Step by step instructions
-Step 1: Clone the repository 
-Step 2: Open the folder in VS code
-Step 3: Set up a virtual environment (optional)
-Step 4: Install dependencies (required packages eg. numpy, matplotlib, pandas )
-Step 5: Open a notebook ( eg. 2_data_mining.ipynb) 
-Step 6: Run the cells
+ 1. Clone the repository
+ 2. Open the folder in VS code
+ 3. Set up a virtual environment (optional)
+ 4. Install dependencies (required packages eg. numpy, matplotlib, pandas )
+ 5. Open a notebook ( eg. 2_data_mining.ipynb)
+ 6. Run the cells
 
 ---
 
