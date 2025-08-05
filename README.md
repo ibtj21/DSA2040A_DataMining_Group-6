@@ -10,7 +10,7 @@ The workflow spans from **data extraction and transformation (ETL)** to **explor
 - **ETL Phase Lead:** Hana Gashaw
 - **EDA Phase leads:** Trizzah Nzioka & Ted Korir
 - **Data Mining leads:** Selmah Tzindori & Hana Gashaw
-- **Dashboard lead:** Hana Gashaw 
+- **Dashboard lead:** Hana Gashaw & Selmah Tzindori
 - **Documentation:** Levin Ekuam &Angela Irungu
  
 
